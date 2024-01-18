@@ -3,12 +3,24 @@
  * bundles Infima by default. Infima is a CSS framework designed to
  * work well for content-centric websites.
  */
- @font-face {
-  font-family: 'HandelGothicDRegular';
-  src: local('HandelGothicDRegular'), url('/font/HandelGothicDRegular.ttf') format('ttf');
-  /* Puedes agregar formatos adicionales según el tipo de fuente (woff2, ttf, etc.) */
-}
 
+ /* @font-face {
+  font-family: 'HandelGothicDRegular';
+  src: local('HandelGothicDRegular'), 
+  url(/font/HandelGothicDRegular.ttf) 
+  format('ttf');
+  
+//}
+*/
+
+font-face {
+  font-family: 'Handel Gothic D, Regular';
+  src: local('HandleGothicDRegular'), local('HandleGothicD'),
+       url(/font/HandelGothiDRegular.ttf) 
+       format('ttf'),
+      
+  /* Agrega más formatos según sea necesario */
+}
 
 
 
@@ -103,7 +115,7 @@ html[data-theme='dark'] .navbar__github {
 
 
 b {
-  font-family:'HandelGothicDRegular',sans-serif;
+  font-family:'Handel Gothic D',sans-serif;
   font-size: 1.6rem;
   
 
@@ -133,8 +145,8 @@ b {
 
 .title{
   
-  font-weight: medium !important;
-  font-family:'HandelGothicDRegular !important',sans-serif;
+  font-weight: medium;
+  font-family:'Handel Gothic D',sans-serif;
   font-size: 2.8rem;
 }
 
