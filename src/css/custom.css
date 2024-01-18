@@ -3,6 +3,15 @@
  * bundles Infima by default. Infima is a CSS framework designed to
  * work well for content-centric websites.
  */
+ @font-face {
+  font-family: 'HandelGothicDRegular';
+  src: local('HandelGothicDRegular'), url('/font/HandelGothicDRegular.ttf') format('ttf');
+  /* Puedes agregar formatos adicionales según el tipo de fuente (woff2, ttf, etc.) */
+}
+
+
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -88,7 +97,93 @@ html[data-theme='dark'] .navbar__github {
 }
 
 
-
 .shadow-sm{
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+
+b {
+  font-family:'HandelGothicDRegular',sans-serif;
+  font-size: 1.6rem;
+  
+
+} 
+.markdown :not(em) > img[src$=".png"],
+.markdown :not(em) > img[src$=".jpg"] {
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  /* transition: transform 0.3s; */
+  /* transition: border-color 0.3s; */
+ 
+}
+
+.markdown :not(em) > img[src$=".png"]:hover,
+.markdown :not(em) > img[src$=".jpg"]:hover {
+   transform: scale(1.05); 
+  box-shadow: 0 0 5px 2px #7540bd;
+}
+
+
+#content .card{
+  place-items: center;
+  align-items: center;
+}
+
+
+
+.title{
+  
+  font-weight: medium !important;
+  font-family:'HandelGothicDRegular !important',sans-serif;
+  font-size: 2.8rem;
+}
+
+
+.ptitle{  
+  font-weight: medium !important;
+  font-family:'Handel Gothic D';
+  font-size: 1.5rem;
+}
+
+.spantitle{
+  font-weight: bold !important;
+}
+.card{
+  padding: 20px;
+  place-content: center;
+}
+
+
+.features_src-components-HomepageFeatures-styles-module{
+  background-image:  linear-gradient(rgba(0, 0, 255, 0.2), rgba(255, 255, 0, 0.2)),
+  url("../../static/img/image1.png")  ;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center; 
+  align-items: center;
+  margin:auto; 
+  width: 100vw;
+  height: 32.65vh;
+  overflow: hidden;
+  
+}
+/* 
+.highligh-content-aling{
+  
+} */
+.footer{
+  height: 11rem;
+  padding-bottom: 8px;
+}
+
+.video{
+  box-shadow: 0 8px 4px 0 rgb(0 0 0 / 0.  5);
+}
+
+/* Estilos para tabletas y teléfonos */
+@media (max-width: 767px) {
+  .video {
+    width: 100%; /* Ajusta el ancho al 100% para dispositivos más pequeños */
+    height: auto; /* Permite que la altura se ajuste automáticamente */
+  }
 }

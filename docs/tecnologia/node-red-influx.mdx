@@ -1,0 +1,357 @@
+---
+sidebar_position: 2
+---
+
+import Highlight from "@site/src/components/Highlight/Highlight";
+import "primeicons/primeicons.css";
+import Tabs from "@theme/Tabs";
+import VideoPlayer from '@site/src/components/Video/Video';
+import TabItem from "@theme/TabItem";
+
+
+# Node Red Influx
+
+<Highlight color="#666">Tecnologías </Highlight>
+
+## Términos generales
+
+### PLC:
+
+> Es un controlador lógico programable, que transmite datos.
+
+### MCOMM:
+
+> Es el equipo de comunicación que almacena la información emitida por los sensores.
+
+### MQTT:
+
+> Un protocolo de mensajería abierto y liviano que brinda a los clientes de red con recursos limitados una manera simple de distribuir información de telemetría en entornos de bajo ancho de banda .
+
+### Mosquitto:
+
+> Mosquitto es un broker MQTT OpenSource ampliamente utilizado debido a su ligereza lo que nos permite, fácilmente, emplearlo en gran número de ambientes, incluso si éstos son de pocos recursos.
+
+### Node-red:
+
+> Es una herramienta muy potente que sirve para comunicar hardware y servicios de una forma muy rápida y sencilla. Simplifica enormemente la tarea de programar del lado del servidor gracias a la programación visual.
+
+### InfluxDB:
+
+> Es una base de datos de series temporales (TSDB) de código abierto desarrollada por la empresa InfluxData.
+
+### Angular:
+
+> Angular es un Framework de JavaScript de código abierto escrito en TypeScript.
+
+### Maria DB:
+
+> Es un sistema de gestión de bases de datos derivado de MySQL con licencia GPL.
+
+### Tópico:
+
+> Nombre asignado al sensor, el cual servirá para su configuración en todas las tecnologías utilizadas.
+> Se encuentran definidos 3 tópicos:
+> **`
+/DATA/
+/REAL/
+/ALARMS/`**
+
+> Se debe colocar primero el nombre del MCOMM/tipo de tópico/ **Ejemplo:**
+> **`
+ ESSENTIA_COL/DATA/
+ESSENTIA_COL/REAL/
+ESSENTIA_COL/ALARMS/`**
+
+{/* ## Conexión PLC - Flexy (MCOMM)
+
+Los datos generados por el PLC son recopilados por el equipo Flexy y este conjunto de datos es enviado a un protocolo de tipo suscriptor-publicador (MQTT Mosquito).
+
+Link de acceso:
+mqtt.destraislas.com
+
+Para configuración extensiva del Flexy puede consultar su RG-0006-01 1.9 Programming Reference Guide.
+
+Configuración Node-Red
+Deberá copiar y pegar una de las configuraciones existentes y cambiar la información de los tópicos.
+
+La versión para este desarrollo es: 2.2.2
+
+Los datos de acceso son:
+
+http://nodered.destraislas.com
+Username: gislas
+Password: desarrollo
+
+Actividad a realizar: Suscribirse a tópicos publicados desde MQTT(Mosquito), Proceso de información, envío de data a base de datos.
+
+Desarrollo: Obtener data enviada desde los tópicos, esta data debe ser transformada en formato JSON, luego debe estructurarse según formato de cada base de datos para ser almacenada.
+
+Mqtt In: para ingresar los datos que se reciben de Mosquitto.
+Json: Para organizar la data recibida.
+
+Función de Influx data: que permite configurar la data para ser leída por Influxdb.
+Función conector: permite detener el envío de data a influx en caso de algún problema, sin desconfigurar lo previo.
+Influx db out: para enviar la información a Influxddb. */}
+
+# InfluxDB 
+
+InfluxDB es una base de datos de tiempo de serie de código abierto optimizada para almacenar y consultar datos de series de tiempo de alto rendimiento. 
+
+## Funcionamiento de InfluxDB
+
+- InfluxDB está desarrollada en Go y no requiere esquemas predefinidos.
+
+- Utiliza un lenguaje de consultas similar a SQL llamado InfluxQL para interactuar con los datos.
+
+- Los datos se organizan en mediciones con campos asociados y etiquetas. 
+
+- Las mediciones representan eventos que ocurren en puntos específicos en el tiempo.
+
+- Los campos representan las métricas de los eventos. Las etiquetas indexan dimensiones meta de los datos.
+
+- InfluxDB está diseñada para manejar escrituras y lecturas de alto rendimiento, así como agregaciones de datos en tiempo real.
+
+- Cuenta con bibliotecas de cliente en varios lenguajes para integrarse fácilmente con aplicaciones.
+
+- Tiene una arquitectura simple sin maestro distribuido para escalar horizontalmente.
+
+- Ideal para casos de uso como monitorización de infraestructura, métricas de aplicaciones, IoT, análisis, etc.
+
+- Permite crear dashboards e informes en tiempo real a partir de los datos almacenados.
+
+## Procedimiento para ingresar al influxDB Cloud
+
+### Procedimiento para ingresar a la URL [https://cloud2.influxdata.com/signup](https://cloud2.influxdata.com/signup)
+
+### Descripción general
+
+Este manual técnico te mostrará cómo ingresar a la URL [https://cloud2.influxdata.com/signup](https://cloud2.influxdata.com/signup).
+
+## Requisitos
+
+Para seguir este manual técnico, necesitarás:
+
+* Un navegador web
+* Una dirección de correo electrónico válida
+
+## Pasos
+
+1. Abre un navegador web y escribe la URL [https://cloud2.influxdata.com/signup](https://cloud2.influxdata.com/signup) en la barra de direcciones.
+
+(https://cloud2.influxdata.com/signup)]
+
+2. Haz clic en el botón **Enter**.
+
+3. Se te mostrará una página web con un formulario de registro.
+
+4. Ingresa los siguientes datos en el formulario:
+
+    * **Nombre:** Tu nombre completo
+    * **Correo electrónico:** Tu dirección de correo electrónico
+    * **Contraseña:** Una contraseña segura
+
+5. Haz clic en el botón **Crear cuenta**.
+
+![Influxd](/img/influxdb/influxdb-0-1.png "login")
+
+6. Recibirás un correo electrónico de confirmación en la dirección de correo electrónico que proporcionaste.
+7. Abre el correo electrónico y haz clic en el enlace de confirmación.
+
+8. Se te redirigirá a url [https://cloud2.influxdata.com/signup](https://cloud2.influxdata.com/signup) donde podrás iniciar sesión.
+
+![Influxd](/img/influxdb/influxdb-0.png "login")
+
+9. Ingresa tu dirección de correo electrónico y contraseña en los campos correspondientes.
+
+10. Haz clic en el botón **Iniciar sesión**.
+
+11. Si todos los pasos se han realizado correctamente, se te mostrará la consola de InfluxDB.
+
+## tutulo
+
+![Influxd](/img/influxdb/influxdb-1.png "login")
+
+> Descripcion
+
+---
+## tutulo
+
+![Influxd](/img/influxdb/influxdb-2.png "login")
+
+> Descricip
+---
+
+## tutulo
+
+![Influxd](/img/influxdb/influxdb-3.png "login")
+> 
+---
+![Influxd](/img/influxdb/influxdb-4.png "login")
+
+---
+## tutulo
+
+![Influxd](/img/influxdb/influxdb-5.png "login")
+
+> 
+
+---
+![Influxd](/img/influxdb/influxdb-5-1.png "login")
+
+---
+![Influxd](/img/influxdb/influxdb-6.png "login")
+
+## Consejos
+
+* Asegúrate de que tu dirección de correo electrónico sea válida y que puedas acceder a ella.
+* Crea una contraseña segura que sea difícil de adivinar.
+* Lee los términos de servicio y la política de privacidad de InfluxDB antes de crear una cuenta.
+
+
+# Node Red
+:::tip Ingresar al servidor de node red version 2.2.2
+> El usuario debe colocar en el campo url del explorador o navegador de internet la siguiente direccion URL: [Nodered](https://nodered.destraislas.com/). 
+ 
+La versión para este desarrollo es: 2.2.2
+
+Los datos de acceso son: 
+
+**Username**: `gislas`
+**Password**: `*Islas2022`
+
+:::
+
+
+> **Actividad a realizar**: Suscribirse a tópicos publicados desde MQTT(Mosquito), Proceso de información, envío de data a base de datos.
+
+> **Desarrollo**: Obtener data enviada desde los tópicos, esta data debe ser transformada en formato JSON, luego debe estructurarse según formato de cada base de datos para ser almacenada. 
+
+
+<VideoPlayer videoSrc="/img/nodered/nodered.mp4" />
+
+## Node-RED
+
+> Node-RED es un entorno de desarrollo visual basado en flujos para la creación de aplicaciones IoT y de automatización. Permite la conexión y manipulación de nodos para construir flujos de ejecución sin necesidad de programación intensiva.
+
+### Características Principales
+
+- **Desarrollo Visual**: Interfaz gráfica para la creación y gestión de flujos de nodos.
+- **Amplia Biblioteca de Nodos**: Una variedad de nodos predefinidos para interactuar con dispositivos, servicios web y protocolos.
+- **Integración con IoT**: Facilita la conexión con dispositivos IoT y servicios en la nube.
+- **Extensible y Personalizable**: Soporte para la creación de nodos personalizados y extensiones.
+- **Flujo de Trabajo Basado en Eventos**: Los nodos responden a eventos y ejecutan acciones en consecuencia.
+- **Soporte Multiplataforma**: Puede ejecutarse en sistemas locales o en la nube.
+
+### Ejemplo de Uso
+
+```javascript
+// Crear un flujo simple en Node-RED
+[{
+    id: "1",
+    type: "inject",
+    name: "Inyectar mensaje",
+    payload: "Hola, Node-RED",
+    repeat: "",
+    crontab: "",
+    once: true,
+    wires: [["2"]]
+}, {
+    id: "2",
+    type: "debug",
+    name: "",
+    active: true,
+    complete: "false",
+    console: "false",
+    x: 450,
+    y: 160,
+    z: "9999",
+    noerr: 0,
+    outputs: 1,
+    wires: []
+}]
+```
+
+### Integración con Servicios Externos
+
+Node-RED ofrece integración con una amplia gama de servicios externos, lo que facilita la creación de flujos que se conectan a plataformas en la nube, bases de datos y servicios web. Algunos ejemplos incluyen:
+
+- **MQTT Broker**: Soporte integrado para el protocolo MQTT para la comunicación en tiempo real con dispositivos IoT.
+- **RESTful APIs**: Nodos dedicados para consumir y exponer servicios web basados en arquitecturas RESTful.
+- **Bases de Datos**: Conexión con bases de datos como MongoDB, MySQL y SQLite para el almacenamiento y recuperación de datos.
+- **Plataformas en la Nube**: Integración con servicios en la nube como AWS, Azure y Google Cloud Platform.
+
+### Extensibilidad y Comunidad
+
+Node-RED es altamente extensible, permitiendo a los usuarios crear sus propios nodos para adaptarse a casos de uso específicos. Además, cuenta con una activa comunidad de desarrolladores que contribuyen con nodos adicionales, solucionan problemas y comparten experiencias.
+
+### Ejemplo de Flujos Complejos
+
+```javascript
+[{
+    id: "1",
+    type: "mqtt in",
+    name: "Suscribirse a eventos",
+    topic: "eventos/sensor",
+    broker: "broker-mqtt",
+    wires: [["2"]]
+}, {
+    id: "2",
+    type: "function",
+    name: "Procesar Datos",
+    func: "msg.payload = { datos: msg.payload }; return msg;",
+    wires: [["3"]]
+}, {
+    id: "3",
+    type: "http request",
+    name: "Enviar a API",
+    method: "POST",
+    url: "https://api.ejemplo.com/actualizar",
+    wires: []
+}]
+```
+
+---
+# Configuración Node-Red
+
+> 
+![node](/img/nodered/nodered.png "node")
+
+---
+---
+# Node
+
+> 
+![node](/img/nodered/nodered-0.png "node")
+
+---
+# Node
+
+> 
+![node](/img/nodered/nodered-1.png "node")
+
+---
+# Node
+
+> 
+![node](/img/nodered/nodered-2.png "node")
+
+---
+# Node
+
+> 
+![node](/img/nodered/nodered-3.png "node")
+
+---
+# Node
+
+> 
+![node](/img/nodered/nodered-4.png "node")
+
+---
+
+# Node
+
+> 
+![node](/img/nodered/nodered-5.png "node")
+
+---

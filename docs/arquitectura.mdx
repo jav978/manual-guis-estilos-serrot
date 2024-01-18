@@ -1,0 +1,60 @@
+---
+sidebar_position: 6
+---
+
+import Highlight from '@site/src/components/Highlight/Highlight';
+import mediumZoom from 'medium-zoom';
+
+
+# Arquitectura 🏗️
+
+<Highlight color="#999999">Módulo de Login</Highlight>
+
+{/* <span class="badge badge--info">Info</span> */}
+<br/>
+
+## Técnologias aplicas del Sistema Islas Cloud
+
+## Diagrama de la arqitéctura 
+![arquitectura](/img/arquitectura.png "Arquitectura")
+## Front-end
+- Desarrollado en **Angular 17.2.0** con **TypeScript 4.9.4**
+- Framework de componentes **PrimeNG** 
+- Comunicación con API RESTful de back-end mediante **HTTP/JSON**
+- Pruebas unitarias con **Jasmine 4.5.0** y **Karma 6.4.0**
+- Empaquetado y build con **Webpack**
+- Despliegue en contenedores **Docker**
+
+## Back-end
+- Desarrollado en **NestJS 9** 
+- Framework **Node.js** con **TypeScript**
+- Arquitectura modular y escalable
+- Patrón de arquitectura MVC
+- Autenticación y autorización con **Passport JWT**  
+- API RESTful con routing declarativo
+- **Axios 3.0.0** para manejo de peticiones para **MariaDB**
+- Caché en **Redis**
+- Logging con **Winston** y **Morgan**
+- Pruebas unitarias con **Jest**
+- Contenerización con **Docker**
+
+## Base de datos
+- **PostgreSQL 12** como base de datos relacional
+- Replicación maestro-esclavo para alta disponibilidad
+- Sharding para particionamiento de datos
+- Backups automáticos a almacenamiento S3
+
+## Infraestructura
+- Servidores en la nube Digital Ocean
+- Orquestación de contenedores con **Docker** 
+- Gestion de contenedores con portainer
+- Balanceo de carga con **Nginx Ingress**
+- Almacenamiento persistente en **EBS**
+- Caché en **ElastiCache**
+- CI/CD en **CodePipeline**
+
+
+## Seguridad
+- Encriptación SSL/TLS en tránsito y reposo
+- Autenticación y autorización mediante **JWT** 
+- Manejo seguro de sesiones

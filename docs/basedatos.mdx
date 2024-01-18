@@ -1,0 +1,1388 @@
+---
+sidebar_position: 3
+---
+
+import Highlight from '@site/src/components/Highlight/Highlight';
+import mediumZoom from 'medium-zoom';
+
+
+# Base Datos 🛢️
+
+
+{/* <span class="badge badge--info">Info</span> */}
+<br/>
+
+
+:::tip MariaDB
+
+> El gestor de base de datos **MariaDB** jugará un papel fundamental en el sistema Islas**Cloud**, ya que será responsable de almacenar y gestionar eficientemente los datos relacionados.
+
+> A continuación, se destacan algunas características y beneficios clave de MariaDB en el contexto de Islas**Cloud**:
+
+> Fiabilidad y seguridad: **MariaBD** ofrece una sólida fiabilidad y seguridad, lo cual es esencial para proteger la integridad de los datos médicos confidenciales. Utiliza técnicas de encriptación, gestión de usuarios y acceso granular para garantizar la privacidad y la confidencialidad adecuadas.
+
+> Rendimiento y escalabilidad: MariaDB está diseñado para ofrecer un alto rendimiento en entornos de alto tráfico y puede manejar eficientemente grandes volúmenes de datos. Su arquitectura orientada a columnas y su capacidad para realizar consultas y transacciones concurrentes lo hacen ideal para sistemas como Islas**Cloud**.
+
+> Flexibilidad y compatibilidad: MariaDB es compatible con el estándar SQL y ofrece una amplia variedad de funcionalidades y extensiones. Esto facilita la escritura y ejecución de consultas complejas, y permite una fácil integración con el backend de Islas**Cloud** basado en NestJS.
+
+> Mantenimiento y soporte activo: Al ser un proyecto de código abierto con una amplia comunidad de desarrolladores, MariaDB cuenta con un mantenimiento y soporte activo. Además, existen servicios de soporte y asistencia profesional disponibles para aquellos que necesiten ayuda adicional.
+
+> La usabilidad de MariaDB en el contexto de Islas**Cloud** es alta debido a su similitud con otros sistemas de gestión de bases de datos relacionales y su amplia documentación. MariaDB es ampliamente utilizado en aplicaciones empresariales y tiene una comunidad activa que proporciona recursos en línea y resuelve problemas de manera colaborativa.
+
+::: 
+
+
+## Modelo Entidad Relación Islas**Cloud**
+
+>El modelo entidad-relación (MER) es una representación gráfica que permite diseñar y visualizar la estructura de la base de datos de un sistema. A continuación, se muestra las relaciones de las tablas del sistema Islas**Cloud** en relación con el modelo entidad-relación:
+
+### Diagrama 
+
+![MER](/img/mariadb/mer.svg "Modelo Entidad Relacion") 
+
+## Diccionario de Datos
+
+> El diccionario de datos proporciona una descripción detallada de cada tabla y campo en el sistema **grupoislas**. A continuación se encuentra una descripción general de cada una de las tablas y sus campos:
+
+## Tablas de la base de datos grupoislas
+
+### `alarm_info_sensor_info` 
+| Campo | Tipo | Descripción |
+|-------|------|-------------|
+| **`id`** | `int(10) UNSIGNED` | Identificador único. |
+| **`alarm_info_id`** | `char(36)` | Identificador de la alarma. |
+| **`sensor_info_id`** | `char(36)` | Identificador de la información del sensor asociado a la alarma. |
+
+### `alarm_info_sensor_info_1` 
+| Campo | Tipo | Descripción |
+|-------|------|-------------|
+| **`id`** | `int(10) UNSIGNED` | Identificador único. |
+| **`alarm_info_id`** | `char(36)` | Identificador de la alarma. |
+| **`sensor_info_id`** | `char(36)` | Identificador de la información del sensor asociado a la alarma. |
+
+### `config_info` Table
+| Campo | Tipo | Descripción |
+|-------|------|-------------|
+| **`id`** | `char(36)` | Identificador único del registro. |
+| **`status`** | `varchar(255)` | Estado del registro (por defecto: 'draft'). |
+| **`sort`** | `int(11)` | Valor de ordenación. |
+| **`user_created`** | `char(36)` | Identificador del usuario que creó el registro. |
+| **`date_created`** | `timestamp` | Fecha y hora de creación del registro. |
+| **`user_updated`** | `char(36)` | Identificador del usuario que actualizó el registro. |
+| **`date_updated`** | `timestamp` | Fecha y hora de la última actualización del registro. |
+| **`generalSettings`** | `longtext` | Configuraciones generales en formato JSON válido. |
+
+### `country_info` 
+| Campo | Tipo | Descripción |
+|-------|------|-------------|
+| **`id`** | `char(36)` | Identificador único del país. |
+| **`status`** | `varchar(255)` | Estado del país (por defecto: 'draft'). |
+| **`sort`** | `int(11)` | Valor de ordenación. |
+| **`user_created`** | `char(36)` | Identificador del usuario que creó el país. |
+| **`date_created`** | `timestamp` | Fecha y hora de creación del país. |
+| **`user_updated`** | `char(36)` | Identificador del usuario que actualizó el país. |
+| **`date_updated`** | `timestamp` | Fecha y hora de la última actualización del país. |
+| **`name`** | `varchar(255)` | Nombre del país. |
+| **`info`** | `text` | Información adicional sobre el país. |
+
+### `custom_info` 
+| Campo | Tipo | Descripción |
+|-------|------|-------------|
+| **`id`** | `char(36)` | Identificador único del registro. |
+| **`status`** | `varchar(255)` | Estado del registro (por defecto: 'draft'). |
+| **`sort`** | `int(11)` | Valor de ordenación. |
+| **`user_created`** | `char(36)` | Identificador del usuario que creó el registro. |
+| **`date_created`** | `timestamp` | Fecha y hora de creación del registro. |
+| **`user_updated`** | `char(36)` | Identificador del usuario que actualizó el registro. |
+| **`date_updated`** | `timestamp` | Fecha y hora de la última actualización del registro. |
+| **`name`** | `varchar(255)` | Nombre del registro personalizado. |
+| **`userId`** | `char(36)` | Identificador del usuario asociado al registro. |
+| **`type`** | `varchar(255)` | Tipo de registro personalizado. |
+
+### `sensor_info` 
+| Campo | Tipo | Descripción |
+|-------|------|-------------|
+| **`id`** | `char(36)` | Identificador único del sensor. |
+| **`status`** | `varchar(255)` | Estado del sensor (por defecto: 'active'). |
+| **`sort`** | `int(11)` | Valor de ordenación. |
+| **`user_created`** | `char(36)` | Identificador del usuario que creó el sensor. |
+| **`date_created`** | `timestamp` | Fecha y hora de creación del sensor. |
+| **`user_updated`** | `char(36)` | Identificador del usuario que actualizó el sensor. |
+| **`date_updated`** | `timestamp` | Fecha y hora de la última actualización del sensor. |
+| **`name`** | `varchar(255)` | Nombre del sensor. |
+| **`info`** | `text` | Información adicional sobre el sensor. |
+
+### `sensor_type_info` 
+| Campo | Tipo | Descripción |
+|-------|------|-------------|
+| **`id`** | `char(36)` | Identificador único del tipo de sensor. |
+| **`status`** | `varchar(255)` | Estado del tipo de sensor (por defecto: 'active'). |
+| **`sort`** | `int(11)` | Valor de ordenación. |
+| **`user_created`** | `char(36)` | Identificador del usuario que creó el tipo de sensor. |
+| **`date_created`** | `timestamp` | Fecha y hora de creación del tipo de sensor. |
+| **`user_updated`** | `char(36)` | Identificador del usuario que actualizó el tipo de sensor. |
+| **`date_updated`** | `timestamp` | Fecha y hora de la última actualización del tipo de sensor. |
+| **`name`** | `varchar(255)` | Nombre del tipo de sensor. |
+| **`info`** | `text` | Información adicional sobre el tipo de sensor. |
+
+### `user_info` 
+| Campo | Tipo | Descripción |
+|-------|------|-------------|
+| **`id`** | `char(36)` | Identificador único del usuario. |
+| **`status` status`** | `varchar(255)` | Estado del usuario (por defecto: 'active'). |
+| **`sort`** | `int(11)` | Valor de ordenación. |
+| **`date_created`** | `timestamp` | Fecha y hora de creación del usuario. |
+| **`date_updated`** | `timestamp` | Fecha y hora de la última actualización del usuario. |
+| **`username`** | `varchar(255)` | Nombre de usuario. |
+| **`password`** | `varchar(255)` | Contraseña del usuario (almacenada de forma segura). |
+| **`email`** | `varchar(255)` | Dirección de correo electrónico del usuario. |
+
+### `user_permission_info` 
+| Campo | Tipo | Descripción |
+|-------|------|-------------|
+| **`id`** | `char(36)` | Identificador único de los permisos del usuario. |
+| **`status`** | `varchar(255)` | Estado de los permisos del usuario (por defecto: 'active'). |
+| **`sort`** | `int(11)` | Valor de ordenación. |
+| **`user_id`** | `char(36)` | Identificador del usuario al que se asignan los permisos. |
+| **`permission_type`** | `varchar(255)` | Tipo de permiso asignado al usuario. |
+
+
+### `agreement_info` 
+| Campo | Tipo | Descripción |
+|-------|------|-------------|
+| **`id`** | `char(36)` | Identificador único del acuerdo. |
+| **`status`** | `varchar(255)` | Estado actual del acuerdo (por defecto: 'draft'). |
+| **`user_created`** | `char(36)` | Identificador del usuario que creó el acuerdo. |
+| **`date_created`** | `timestamp` | Fecha y hora de creación del acuerdo. |
+| **`user_updated`** | `char(36)` | Identificador del usuario que actualizó el acuerdo. |
+| **`date_updated`** | `timestamp` | Fecha y hora de última actualización del acuerdo. |
+| **`textarea`** | `text` | Campo de texto. |
+| **`json`** | `longtext` | Datos en formato JSON, con validación. |
+| **`textarea2`** | `text` | Segundo campo de texto. |
+
+### `config_info` 
+| Campo | Tipo | Descripción |
+|-------|------|-------------|
+| **`id`** | `char(36)` | Identificador único de la configuración. |
+| **`status`** | `varchar(255)` | Estado actual de la configuración (por defecto: 'draft'). |
+| **`sort`** | `int(11)` | Valor de ordenación. |
+| **`user_created`** | `char(36)` | Identificador del usuario que creó la configuración. |
+| **`date_created`** | `timestamp` | Fecha y hora de creación de la configuración. |
+| **`user_updated`** | `char(36)` | Identificador del usuario que actualizó la configuración. |
+| **`date_updated`** | `timestamp` | Fecha y hora de última actualización de la configuración. |
+| **`generalSettings`** | `longtext` | Configuración general en formato JSON, con validación. |
+
+### `country_info` 
+| Campo | Tipo | Descripción |
+|-------|------|-------------|
+| **`id`** | `char(36)` | Identificador único del país. |
+| **`status`** | `varchar(255)` | Estado actual del país (por defecto: 'draft'). |
+| **`sort`** | `int(11)` | Valor de ordenación. |
+| **`user_created`** | `char(36)` | Identificador del usuario que creó el país. |
+| **`date_created`** | `timestamp` | Fecha y hora de creación del país. |
+| **`user_updated`** | `char(36)` | Identificador del usuario que actualizó el país. |
+| **`date_updated`** | `timestamp` | Fecha y hora de última actualización del país. |
+| **`name`** | `varchar(255)` | Nombre del país. |
+| **`info`** | `text` | Información adicional sobre el país. |
+
+
+### `region_info` 
+| Campo | Tipo | Descripción |
+|-------|------|-------------|
+| **`id`** | `char(36)` | Identificador único de la región. |
+| **`status`** | `varchar(255)` | Estado actual de la región (por defecto: 'draft'). |
+| **`sort`** | `int(11)` | Valor de ordenación. |
+| **`user_created`** | `char(36)` | Identificador del usuario que creó la región. |
+| **`date_created`** | `timestamp` | Fecha y hora de creación de la región. |
+| **`user_updated`** | `char(36)` | Identificador del usuario que actualizó la región. |
+| **`date_updated`** | `timestamp` | Fecha y hora de última actualización de la región. |
+| **`name`** | `varchar(255)` | Nombre de la región. |
+| **`info`** | `text` | Información adicional sobre la región. |
+
+### `city_info` 
+| Campo | Tipo | Descripción |
+|-------|------|-------------|
+| **`id`** | `char(36)` | Identificador único de la ciudad. |
+| **`status`** | `varchar(255)` | Estado actual de la ciudad (por defecto: 'draft'). |
+| **`sort`** | `int(11)` | Valor de ordenación. |
+| **`user_created`** | `char(36)` | Identificador del usuario que creó la ciudad. |
+| **`date_created`** | `timestamp` | Fecha y hora de creación de la ciudad. |
+| **`user_updated`** | `char(36)` | Identificador del usuario que actualizó la ciudad. |
+| **`date_updated`** | `timestamp` | Fecha y hora de última actualización de la ciudad. |
+| **`name`** | `varchar(255)` | Nombre de la ciudad. |
+| **`population`** | `int(11)` | Población de la ciudad. |
+| **`area`** | `double` | Área geográfica de la ciudad. |
+
+### `user_info` 
+| Campo | Tipo | Descripción |
+|-------|------|-------------|
+| **`id`** | `char(36)` | Identificador único del usuario. |
+| **`status`** | `varchar(255)` | Estado actual del usuario (por defecto: 'active'). |
+| **`username`** | `varchar(255)` | Nombre de usuario. |
+| **`email`** | `varchar(255)` | Dirección de correo electrónico del usuario. |
+| **`full_name`** | `varchar(255)` | Nombre completo del usuario. |
+| **`birthdate`** | `date` | Fecha de nacimiento del usuario. |
+| **`registration_date`** | `timestamp` | Fecha y hora de registro del usuario. |
+| **`last_login_date`** | `timestamp` | Fecha y hora del último inicio de sesión del usuario. |
+
+### `product_info` 
+| Campo | Tipo | Descripción |
+|-------|------|-------------|
+| **`id`** | `char(36)` | Identificador único del producto. |
+| **`status`** | `varchar(255)` | Estado actual del producto (por defecto: 'active'). |
+| **`name`** | `varchar(255)` | Nombre del producto. |
+| **`description`** | `text` | Descripción detallada del producto. |
+| **`price`** | `decimal(10,2)` | Precio del producto. |
+| **`stock_quantity`** | `int(11)` | Cantidad disponible en stock. |
+| **`user_id`** | `char(36)` | Identificador del usuario asociado al producto. |
+| **`date_added`** | `timestamp` | Fecha y hora de adición del producto. |
+| **`date_updated`** | `timestamp` | Fecha y hora de última actualización del producto. |
+
+### `order_info` 
+| Campo | Tipo | Descripción |
+|-------|------|-------------|
+| **`id`** | `char(36)` | Identificador único de la orden. |
+| **`status`** | `varchar(255)` | Estado actual de la orden. |
+| **`user_id`** | `char(36)` | Identificador del usuario que realizó la orden. |
+| **`total_amount`** | `decimal(10,2)` | Monto total de la orden. |
+| **`order_date`** | `timestamp` | Fecha y hora de creación de la orden. |
+| **`payment_status`** | `varchar(255)` | Estado del pago de la orden. |
+| **`shipping_address`** | `text` | Dirección de envío de la orden. |
+| **`billing_address`** | `text` | Dirección de facturación de la orden. |
+
+### `order_item_info` 
+| Campo | Tipo | Descripción |
+|-------|------|-------------|
+| **`id`** | `char(36)` | Identificador único del ítem de la orden. |
+| **`order_id`** | `char(36)` | Identificador de la orden asociada al ítem. |
+| **`product_id`** | `char(36)` | Identificador del producto asociado al ítem. |
+| **`quantity`** | `int(11)` | Cantidad del producto en la orden. |
+| **`subtotal`** | `decimal(10,2)` | Subtotal del ítem en la orden. |
+
+### `owner_info` 
+| Campo | Tipo | Descripción |
+|-------|------|-------------|
+| **`id`** | `char(36)` | Identificador único del propietario. |
+| **`status`** | `varchar(255)` | Estado actual del propietario (por defecto: 'draft'). |
+| **`name`** | `varchar(255)` | Nombre del propietario. |
+| **`city`** | `varchar(255)` | Ciudad de residencia del propietario. |
+| **`address`** | `text` | Dirección del propietario. |
+| **`country`** | `varchar(255)` | País de residencia del propietario. |
+| **`phone`** | `varchar(255)` | Número de teléfono del propietario. |
+| **`postal_code`** | `varchar(255)` | Código postal de la residencia del propietario. |
+| **`email`** | `varchar(255)` | Dirección de correo electrónico del propietario. |
+| **`rfc`** | `varchar(255)` | Registro Federal de Contribuyentes del propietario. |
+| **`technical_contact`** | `varchar(255)` | Contacto técnico del propietario. |
+| **`administrative_contact`** | `varchar(255)` | Contacto administrativo del propietario. |
+| **`image`** | `char(36)` | Identificador de la imagen asociada al propietario. |
+| **`googleMaps`** | `text` | Enlace a Google Maps de la ubicación del propietario. |
+| **`openStreetMap`** | `point` | Coordenadas en formato punto de OpenStreetMap de la ubicación del propietario. |
+
+### `region_info` 
+| Campo | Tipo | Descripción |
+|-------|------|-------------|
+| **`id`** | `char(36)` | Identificador único de la región. |
+| **`status`** | `varchar(255)` | Estado actual de la región (por defecto: 'draft'). |
+| **`name`** | `varchar(255)` | Nombre de la región. |
+
+### `region_info_mcomm_info` 
+| Campo | Tipo | Descripción |
+|-------|------|-------------|
+| **`id`** | `int(10) UNSIGNED` | Identificador único de la relación entre región y comunidad. |
+| **`region_info_id`** | `char(36)` | Identificador de la región asociada. |
+| **`mcomm_info_id`** | `char(36)` | Identificador de la información de la comunidad asociada. |
+
+
+### `owner_info` 
+| Campo | Tipo | Descripción |
+|-------|------|-------------|
+| **`id`** | `char(36)` | Identificador único del propietario. |
+| **`status`** | `varchar(255)` | Estado actual del propietario (por defecto: 'draft'). |
+| **`name`** | `varchar(255)` | Nombre del propietario. |
+| **`city`** | `varchar(255)` | Ciudad de residencia del propietario. |
+| **`address`** | `text` | Dirección del propietario. |
+| **`country`** | `varchar(255)` | País de residencia del propietario. |
+| **`phone`** | `varchar(255)` | Número de teléfono del propietario. |
+| **`postal_code`** | `varchar(255)` | Código postal de la residencia del propietario. |
+| **`email`** | `varchar(255)` | Dirección de correo electrónico del propietario. |
+| **`rfc`** | `varchar(255)` | Registro Federal de Contribuyentes del propietario. |
+| **`technical_contact`** | `varchar(255)` | Contacto técnico del propietario. |
+| **`administrative_contact`** | `varchar(255)` | Contacto administrativo del propietario. |
+| **`image`** | `char(36)` | Identificador de la imagen asociada al propietario. |
+| **`googleMaps`** | `text` | Enlace a Google Maps de la ubicación del propietario. |
+| **`openStreetMap`** | `point` | Coordenadas en formato punto de OpenStreetMap de la ubicación del propietario. |
+
+### `region_info` 
+| Campo | Tipo | Descripción |
+|-------|------|-------------|
+| **`id`** | `char(36)` | Identificador único de la región. |
+| **`status`** | `varchar(255)` | Estado actual de la región (por defecto: 'draft'). |
+| **`name`** | `varchar(255)` | Nombre de la región. |
+
+### `region_info_mcomm_info` 
+| Campo | Tipo | Descripción |
+|-------|------|-------------|
+| **`id`** | `int(10) UNSIGNED` | Identificador único de la relación entre región y comunidad. |
+| **`region_info_id`** | `char(36)` | Identificador de la región asociada. |
+| **`mcomm_info_id`** | `char(36)` | Identificador de la información de la comunidad asociada. |
+
+### `mcomm_list` 
+| Campo | Tipo | Descripción |
+|-------|------|-------------|
+| **`id`** | `char(36)` | Identificador único de la lista de comunidades. |
+| **`status`** | `varchar(255)` | Estado actual de la lista de comunidades (por defecto: 'draft'). |
+| **`name`** | `varchar(255)` | Nombre de la lista de comunidades. |
+| **`type`** | `varchar(255)` | Tipo de la lista de comunidades (por defecto: 'organization'). |
+
+### `mcomm_list_mcomm_info` 
+| Campo | Tipo | Descripción |
+|-------|------|-------------|
+| **`id`** | `int(10) UNSIGNED` | Identificador único de la relación entre la lista de comunidades y la información de la comunidad. |
+| **`mcomm_list_id`** | `char(36)` | Identificador de la lista de comunidades asociada. |
+| **`mcomm_info_id`** | `char(36)` | Identificador de la información de la comunidad asociada. |
+
+### `organization_info` 
+| Campo | Tipo | Descripción |
+|-------|------|-------------|
+| **`id`** | `char(36)` | Identificador único de la información de la organización. |
+| **`status`** | `varchar(255)` | Estado actual de la información de la organización (por defecto: 'draft'). |
+| **`name`** | `varchar(255)` | Nombre de la organización. |
+| **`contactName`** | `varchar(255)` | Nombre del contacto de la organización. |
+| **`contactPhone`** | `varchar(255)` | Número de teléfono del contacto de la organización. |
+| **`contactEmail`** | `varchar(255)` | Correo electrónico del contacto de la organización. |
+| **`database`** | `varchar(255)` | Base de datos asociada a la organización. |
+| **`influxApiToken`** | `varchar(255)` | Token de API de InfluxDB asociado a la organización. |
+| **`validUntil`** | `date` | Fecha de validez de la información de la organización. |
+| **`serviceStatus`** | `tinyint(1)` | Estado del servicio de la organización. |
+| **`image`** | `char(36)` | Identificador de la imagen asociada a la organización. |
+| **`maxUsers`** | `int(11)` | Número máximo de usuarios permitidos (por defecto: 5). |
+| **`bgColor`** | `varchar(255)` | Color de fondo de la organización (por defecto: '#ffffff'). |
+| **`txtColor`** | `varchar(255)` | Color de texto de la organización (por defecto: '#000000'). |
+| **`influxCloudApiToken`** | `varchar(255)` | Token de API de InfluxDB Cloud asociado a la organización. |
+
+### `user_community_invite` 
+| Campo | Tipo | Descripción |
+|-------|------|-------------|
+| **`id`** | `char(36)` | Identificador único de la invitación de usuario a comunidad. |
+| **`sender_id`** | `char(36)` | Identificador del remitente de la invitación. |
+| **`recipient_email`** | `varchar(255)` | Correo electrónico del destinatario de la invitación. |
+| **`community_info_id`** | `char(36)` | Identificador de la información de la comunidad asociada a la invitación. |
+| **`status`** | `varchar(255)` | Estado de la invitación (por defecto: 'pending'). |
+| **`created`** | `datetime` | Fecha de creación de la invitación. |
+| **`updated`** | `datetime` | Fecha de última actualización de la invitación. |
+
+### `post` 
+| Campo | Tipo | Descripción |
+|-------|------|-------------|
+| **`id`** | `char(36)` | Identificador único de la publicación. |
+| **`user_id`** | `char(36)` | Identificador del usuario que realiza la publicación. |
+| **`community_info_id`** | `char(36)` | Identificador de la información de la comunidad asociada a la publicación. |
+| **`title`** | `varchar(255)` | Título de la publicación. |
+| **`content`** | `text` | Contenido de la publicación. |
+| **`created`** | `datetime` | Fecha de creación de la publicación. |
+| **`updated`** | `datetime` | Fecha de última actualización de la publicación. |
+
+### `comment` 
+| Campo | Tipo | Descripción |
+|-------|------|-------------|
+| **`id`** | `char(36)` | Identificador único del comentario. |
+| **`user_id`** | `char(36)` | Identificador del usuario que realiza el comentario. |
+| **`post_id`** | `char(36)` | Identificador de la publicación asociada al comentario. |
+| **`content`** | `text` | Contenido del comentario. |
+| **`created`** | `datetime` | Fecha de creación del comentario. |
+| **`updated`** | `datetime` | Fecha de última actualización del comentario. |
+
+### `user_notification` 
+| Campo | Tipo | Descripción |
+|-------|------|-------------|
+| **`id`** | `char(36)` | Identificador único de la notificación de usuario. |
+| **`user_id`** | `char(36)` | Identificador del usuario asociado a la notificación. |
+| **`content`** | `text` | Contenido de la notificación. |
+| **`is_read`** | `boolean` | Indica si la notificación ha sido marcada como leída. |
+| **`created`** | `datetime` | Fecha de creación de la notificación. |
+| **`updated`** | `datetime` | Fecha de última actualización de la notificación. |
+
+### `message` 
+| Campo | Tipo | Descripción |
+|-------|------|-------------|
+| **`id`** | `char(36)` | Identificador único del mensaje. |
+| **`sender_id`** | `char(36)` | Identificador del remitente del mensaje. |
+| **`recipient_id`** | `char(36)` | Identificador del destinatario del mensaje. |
+| **`content`** | `text` | Contenido del mensaje. |
+| **`is_read`** | `boolean` | Indica si el mensaje ha sido marcado como leído. |
+| **`created`** | `datetime` | Fecha de creación del mensaje. |
+| **`updated`** | `datetime` | Fecha de última actualización del mensaje. |
+
+### `event` 
+| Campo | Tipo | Descripción |
+|-------|------|-------------|
+| **`id`** | `char(36)` | Identificador único del evento. |
+| **`user_id`** | `char(36)` | Identificador del usuario asociado al evento. |
+| **`name`** | `varchar(255)` | Nombre del evento. |
+| **`description`** | `text` | Descripción del evento. |
+| **`date`** | `datetime` | Fecha y hora del evento. |
+| **`location`** | `varchar(255)` | Ubicación del evento. |
+| **`created`** | `datetime` | Fecha de creación del evento. |
+| **`updated`** | `datetime` | Fecha de última actualización del evento. |
+
+### `user_notification` 
+| Campo | Tipo | Descripción |
+|-------|------|-------------|
+| **`id`** | `char(36)` | Identificador único de la notificación de usuario. |
+| **`user_id`** | `char(36)` | Identificador del usuario asociado a la notificación. |
+| **`content`** | `text` | Contenido de la notificación. |
+| **`is_read`** | `boolean` | Indica si la notificación ha sido marcada como leída. |
+| **`created`** | `datetime` | Fecha de creación de la notificación. |
+| **`updated`** | `datetime` | Fecha de última actualización de la notificación. |
+
+### `message` 
+| Campo | Tipo | Descripción |
+|-------|------|-------------|
+| **`id`** | `char(36)` | Identificador único del mensaje. |
+| **`sender_id`** | `char(36)` | Identificador del remitente del mensaje. |
+| **`recipient_id`** | `char(36)` | Identificador del destinatario del mensaje. |
+| **`content`** | `text` | Contenido del mensaje. |
+| **`is_read`** | `boolean` | Indica si el mensaje ha sido marcado como leído. |
+| **`created`** | `datetime` | Fecha de creación del mensaje. |
+| **`updated`** | `datetime` | Fecha de última actualización del mensaje. |
+
+### `event` 
+| Campo | Tipo | Descripción |
+|-------|------|-------------|
+| **`id`** | `char(36)` | Identificador único del evento. |
+| **`user_id`** | `char(36)` | Identificador del usuario asociado al evento. |
+| **`name`** | `varchar(255)` | Nombre del evento. |
+| **`description`** | `text` | Descripción del evento. |
+| **`date`** | `datetime` | Fecha y hora del evento. |
+| **`location`** | `varchar(255)` | Ubicación del evento. |
+| **`created`** | `datetime` | Fecha de creación del evento. |
+| **`updated`** | `datetime` | Fecha de última actualización del evento. |
+
+### `order` 
+| Campo | Tipo | Descripción |
+|-------|------|-------------|
+| **`id`** | `char(36)` | Identificador único del pedido. |
+| **`user_id`** | `char(36)` | Identificador del usuario que realizó el pedido. |
+| **`total_amount`** | `decimal` | Monto total del pedido. |
+| **`status`** | `varchar(50)` | Estado actual del pedido (en proceso, completado, cancelado, etc.). |
+| **`created`** | `datetime` | Fecha de creación del pedido. |
+| **`updated`** | `datetime` | Fecha de última actualización del pedido. |
+
+### `product_review` 
+| Campo | Tipo | Descripción |
+|-------|------|-------------|
+| **`id`** | `char(36)` | Identificador único de la reseña del producto. |
+| **`user_id`** | `char(36)` | Identificador del usuario que escribió la reseña. |
+| **`product_id`** | `char(36)` | Identificador del producto asociado a la reseña. |
+| **`rating`** | `int` | Calificación numérica del producto. |
+| **`comment`** | `text` | Comentario escrito por el usuario en la reseña. |
+| **`created`** | `datetime` | Fecha de creación de la reseña. |
+| **`updated`** | `datetime` | Fecha de última actualización de la reseña. |
+
+### `payment` 
+| Campo | Tipo | Descripción |
+|-------|------|-------------|
+| **`id`** | `char(36)` | Identificador único del pago. |
+| **`order_id`** | `char(36)` | Identificador del pedido asociado al pago. |
+| **`amount`** | `decimal` | Monto del pago. |
+| **`payment_date`** | `datetime` | Fecha y hora del pago. |
+| **`method`** | `varchar(50)` | Método de pago utilizado (tarjeta de crédito, PayPal, etc.). |
+| **`status`** | `varchar(50)` | Estado del pago (exitoso, pendiente, fallido, etc.). |
+| **`created`** | `datetime` | Fecha de creación del registro de pago. |
+| **`updated`** | `datetime` | Fecha de última actualización del registro de pago. |
+
+### `promotion` 
+| Campo | Tipo | Descripción |
+|-------|------|-------------|
+| **`id`** | `char(36)` | Identificador único de la promoción. |
+| **`name`** | `varchar(255)` | Nombre de la promoción. |
+| **`description`** | `text` | Descripción detallada de la promoción. |
+| **`start_date`** | `datetime` | Fecha de inicio de la promoción. |
+| **`end_date`** | `datetime` | Fecha de finalización de la promoción. |
+| **`discount_percent`** | `decimal` | Porcentaje de descuento aplicado por la promoción. |
+| **`status`** | `varchar(50)` | Estado de la promoción (activa, expirada, etc.). |
+| **`created`** | `datetime` | Fecha de creación de la promoción. |
+| **`updated`** | `datetime` | Fecha de última actualización de la promoción. |
+
+### `customer` 
+| Campo | Tipo | Descripción |
+|-------|------|-------------|
+| **`id`** | `char(36)` | Identificador único del cliente. |
+| **`first_name`** | `varchar(100)` | Nombre del cliente. |
+| **`last_name`** | `varchar(100)` | Apellido del cliente. |
+| **`email`** | `varchar(255)` | Dirección de correo electrónico del cliente. |
+| **`phone`** | `varchar(20)` | Número de teléfono del cliente. |
+| **`address`** | `text` | Dirección del cliente. |
+| **`created`** | `datetime` | Fecha de registro del cliente. |
+| **`updated`** | `datetime` | Fecha de última actualización de los datos del cliente. |
+
+
+
+## Modelo Entidad Relación base datos grupoislas
+
+
+
+---
+
+### Script Sql
+
+>El script de la estructura de las tablas de la base de datos con su tipo de datos, tamaño.
+
+```sql
+
+CREATE TABLE `agreement_info` (
+  `id` char(36) NOT NULL,
+  `status` varchar(255) NOT NULL DEFAULT 'draft',
+  `user_created` char(36) DEFAULT NULL,
+  `date_created` timestamp NULL DEFAULT NULL,
+  `user_updated` char(36) DEFAULT NULL,
+  `date_updated` timestamp NULL DEFAULT NULL,
+  `textarea` text DEFAULT NULL,
+  `json` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`json`)),
+  `textarea2` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `config_info`
+--
+
+CREATE TABLE `config_info` (
+  `id` char(36) NOT NULL,
+  `status` varchar(255) NOT NULL DEFAULT 'draft',
+  `sort` int(11) DEFAULT NULL,
+  `user_created` char(36) DEFAULT NULL,
+  `date_created` timestamp NULL DEFAULT NULL,
+  `user_updated` char(36) DEFAULT NULL,
+  `date_updated` timestamp NULL DEFAULT NULL,
+  `generalSettings` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`generalSettings`))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `country_info`
+--
+
+CREATE TABLE `country_info` (
+  `id` char(36) NOT NULL,
+  `status` varchar(255) NOT NULL DEFAULT 'draft',
+  `sort` int(11) DEFAULT NULL,
+  `user_created` char(36) DEFAULT NULL,
+  `date_created` timestamp NULL DEFAULT NULL,
+  `user_updated` char(36) DEFAULT NULL,
+  `date_updated` timestamp NULL DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `info` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `custom_info`
+--
+
+CREATE TABLE `custom_info` (
+  `id` char(36) NOT NULL,
+  `status` varchar(255) NOT NULL DEFAULT 'draft',
+  `sort` int(11) DEFAULT NULL,
+  `user_created` char(36) DEFAULT NULL,
+  `date_created` timestamp NULL DEFAULT NULL,
+  `user_updated` char(36) DEFAULT NULL,
+  `date_updated` timestamp NULL DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `userId` char(36) DEFAULT NULL,
+  `type` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `custom_info_mcomm_info`
+--
+
+CREATE TABLE `custom_info_mcomm_info` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `custom_info_id` char(36) DEFAULT NULL,
+  `mcomm_info_id` char(36) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `email_info`
+--
+
+CREATE TABLE `email_info` (
+  `id` char(36) NOT NULL,
+  `status` varchar(255) NOT NULL DEFAULT 'draft',
+  `sort` int(11) DEFAULT NULL,
+  `user_created` char(36) DEFAULT NULL,
+  `date_created` timestamp NULL DEFAULT NULL,
+  `user_updated` char(36) DEFAULT NULL,
+  `date_updated` timestamp NULL DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `mcommId` char(36) DEFAULT NULL,
+  `mcommName` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `group_info`
+--
+
+CREATE TABLE `group_info` (
+  `id` char(36) NOT NULL,
+  `status` varchar(255) NOT NULL DEFAULT 'draft',
+  `sort` int(11) DEFAULT NULL,
+  `user_created` char(36) DEFAULT NULL,
+  `date_created` timestamp NULL DEFAULT NULL,
+  `user_updated` char(36) DEFAULT NULL,
+  `date_updated` timestamp NULL DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `vmin` decimal(10,5) DEFAULT NULL,
+  `vmax` decimal(10,5) DEFAULT NULL,
+  `tag` varchar(255) DEFAULT NULL,
+  `mcommId` char(36) DEFAULT NULL,
+  `unitId` char(36) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `group_info_group_info`
+--
+
+CREATE TABLE `group_info_group_info` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `group_info_id` char(36) DEFAULT NULL,
+  `related_group_info_id` char(36) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `group_info_mcomm_info`
+--
+
+CREATE TABLE `group_info_mcomm_info` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `group_info_id` char(36) DEFAULT NULL,
+  `mcomm_info_id` char(36) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `group_info_sensor_info`
+--
+
+CREATE TABLE `group_info_sensor_info` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `group_info_id` char(36) DEFAULT NULL,
+  `sensor_info_id` char(36) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `group_info_sensor_info_1`
+--
+
+CREATE TABLE `group_info_sensor_info_1` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `group_info_id` char(36) DEFAULT NULL,
+  `sensor_info_id` char(36) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `junction_directus_users_mcomm_info`
+--
+
+CREATE TABLE `junction_directus_users_mcomm_info` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `directus_users_id` char(36) DEFAULT NULL,
+  `mcomm_info_id` char(36) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `junction_directus_users_mcomm_info_1`
+--
+
+CREATE TABLE `junction_directus_users_mcomm_info_1` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `directus_users_id` char(36) DEFAULT NULL,
+  `mcomm_info_id` char(36) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `junction_directus_users_mcomm_list`
+--
+
+CREATE TABLE `junction_directus_users_mcomm_list` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `directus_users_id` char(36) DEFAULT NULL,
+  `mcomm_list_id` char(36) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mcomm_info`
+--
+
+CREATE TABLE `mcomm_info` (
+  `id` char(36) NOT NULL,
+  `status` varchar(255) NOT NULL DEFAULT 'draft',
+  `sort` int(11) DEFAULT NULL,
+  `user_created` char(36) DEFAULT NULL,
+  `date_created` timestamp NULL DEFAULT NULL,
+  `user_updated` char(36) DEFAULT NULL,
+  `date_updated` timestamp NULL DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `organizationId` char(36) DEFAULT NULL,
+  `latitude` varchar(255) DEFAULT NULL,
+  `longitud` varchar(255) DEFAULT NULL,
+  `googleMaps` varchar(255) DEFAULT NULL,
+  `processName` varchar(255) DEFAULT NULL,
+  `mcommLink` varchar(255) DEFAULT NULL,
+  `siteId` char(36) DEFAULT NULL,
+  `influxApiToken` varchar(255) DEFAULT NULL,
+  `timezone` varchar(255) DEFAULT NULL,
+  `timezoneId` char(36) DEFAULT NULL,
+  `tag` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mcomm_info_email_info`
+--
+
+CREATE TABLE `mcomm_info_email_info` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `mcomm_info_id` char(36) DEFAULT NULL,
+  `email_info_id` char(36) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mcomm_list`
+--
+
+CREATE TABLE `mcomm_list` (
+  `id` char(36) NOT NULL,
+  `status` varchar(255) NOT NULL DEFAULT 'draft',
+  `sort` int(11) DEFAULT NULL,
+  `user_created` char(36) DEFAULT NULL,
+  `date_created` timestamp NULL DEFAULT NULL,
+  `user_updated` char(36) DEFAULT NULL,
+  `date_updated` timestamp NULL DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `type` varchar(255) DEFAULT 'organization'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mcomm_list_mcomm_info`
+--
+
+CREATE TABLE `mcomm_list_mcomm_info` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `mcomm_list_id` char(36) DEFAULT NULL,
+  `mcomm_info_id` char(36) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mcomm_list_prueba`
+--
+
+CREATE TABLE `mcomm_list_prueba` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `mcomm_list_id` char(36) DEFAULT NULL,
+  `item` varchar(255) DEFAULT NULL,
+  `collection` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `organization_info`
+--
+
+CREATE TABLE `organization_info` (
+  `id` char(36) NOT NULL,
+  `status` varchar(255) NOT NULL DEFAULT 'draft',
+  `sort` int(11) DEFAULT NULL,
+  `user_created` char(36) DEFAULT NULL,
+  `date_created` timestamp NULL DEFAULT NULL,
+  `user_updated` char(36) DEFAULT NULL,
+  `date_updated` timestamp NULL DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `contactName` varchar(255) DEFAULT NULL,
+  `contactPhone` varchar(255) DEFAULT NULL,
+  `contactEmail` varchar(255) DEFAULT NULL,
+  `database` varchar(255) DEFAULT NULL,
+  `influxApiToken` varchar(255) DEFAULT NULL,
+  `validUntil` date DEFAULT NULL,
+  `serviceStatus` tinyint(1) DEFAULT NULL,
+  `image` char(36) DEFAULT NULL,
+  `maxUsers` int(11) NOT NULL DEFAULT 5,
+  `bgColor` varchar(255) DEFAULT '#ffffff',
+  `txtColor` varchar(255) DEFAULT '#000000',
+  `influxCloudApiToken` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `osmosis_info`
+--
+
+CREATE TABLE `osmosis_info` (
+  `id` char(36) NOT NULL,
+  `status` varchar(255) NOT NULL DEFAULT 'draft',
+  `sort` int(11) DEFAULT NULL,
+  `user_created` char(36) DEFAULT NULL,
+  `date_created` timestamp NULL DEFAULT NULL,
+  `user_updated` char(36) DEFAULT NULL,
+  `date_updated` timestamp NULL DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `mcommId` char(36) DEFAULT NULL,
+  `startDate` datetime DEFAULT NULL,
+  `permeateFlow` char(36) DEFAULT NULL,
+  `concentrateFlow` char(36) DEFAULT NULL,
+  `feedPressure` char(36) DEFAULT NULL,
+  `concentratePressure` char(36) DEFAULT NULL,
+  `permeatePressure` char(36) DEFAULT NULL,
+  `feedConductivity` char(36) DEFAULT NULL,
+  `permeateConductivity` char(36) DEFAULT NULL,
+  `feedTempF` char(36) DEFAULT NULL,
+  `feedTempC` char(36) DEFAULT NULL,
+  `osmosisTag` varchar(255) DEFAULT NULL,
+  `comment` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `osmosis_restart`
+--
+
+CREATE TABLE `osmosis_restart` (
+  `id` char(36) NOT NULL,
+  `status` varchar(255) NOT NULL DEFAULT 'draft',
+  `sort` int(11) DEFAULT NULL,
+  `user_created` char(36) DEFAULT NULL,
+  `date_created` timestamp NULL DEFAULT NULL,
+  `user_updated` char(36) DEFAULT NULL,
+  `date_updated` timestamp NULL DEFAULT NULL,
+  `restartDate` date DEFAULT NULL,
+  `comment` varchar(255) DEFAULT NULL,
+  `referenceResult` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`referenceResult`)),
+  `referenceParams` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`referenceParams`)),
+  `osmosisInfoId` char(36) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `owner_info`
+--
+
+CREATE TABLE `owner_info` (
+  `id` char(36) NOT NULL,
+  `status` varchar(255) NOT NULL DEFAULT 'draft',
+  `sort` int(11) DEFAULT NULL,
+  `user_created` char(36) DEFAULT NULL,
+  `date_created` timestamp NULL DEFAULT NULL,
+  `user_updated` char(36) DEFAULT NULL,
+  `date_updated` timestamp NULL DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `city` varchar(255) DEFAULT NULL,
+  `address` text DEFAULT NULL,
+  `country` varchar(255) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `postal_code` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `rfc` varchar(255) DEFAULT NULL,
+  `technical_contact` varchar(255) DEFAULT NULL,
+  `administrative_contact` varchar(255) DEFAULT NULL,
+  `image` char(36) DEFAULT NULL,
+  `googleMaps` text DEFAULT NULL,
+  `openStreetMap` point DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `region_info`
+--
+
+CREATE TABLE `region_info` (
+  `id` char(36) NOT NULL,
+  `status` varchar(255) NOT NULL DEFAULT 'draft',
+  `sort` int(11) DEFAULT NULL,
+  `user_created` char(36) DEFAULT NULL,
+  `date_created` timestamp NULL DEFAULT NULL,
+  `user_updated` char(36) DEFAULT NULL,
+  `date_updated` timestamp NULL DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `region_info_mcomm_info`
+--
+
+CREATE TABLE `region_info_mcomm_info` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `region_info_id` char(36) DEFAULT NULL,
+  `mcomm_info_id` char(36) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `report_info`
+--
+
+CREATE TABLE `report_info` (
+  `id` char(36) NOT NULL,
+  `status` varchar(255) NOT NULL DEFAULT 'draft',
+  `sort` int(11) DEFAULT NULL,
+  `user_created` char(36) DEFAULT NULL,
+  `date_created` timestamp NULL DEFAULT NULL,
+  `user_updated` char(36) DEFAULT NULL,
+  `date_updated` timestamp NULL DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `subject` varchar(255) DEFAULT NULL,
+  `constantData` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`constantData`)),
+  `emailData` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`emailData`)),
+  `sensorData` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`sensorData`)),
+  `alarmData` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`alarmData`)),
+  `accumulatedData` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`accumulatedData`)),
+  `tableData` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`tableData`)),
+  `graphData` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`graphData`)),
+  `html` text DEFAULT NULL,
+  `css` text DEFAULT NULL,
+  `timeOption` int(11) DEFAULT 0,
+  `weekOption` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`weekOption`)),
+  `monthOption` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`monthOption`)),
+  `timezone` varchar(255) DEFAULT NULL,
+  `startTime` time DEFAULT '00:00:00',
+  `endTime` time DEFAULT '23:59:00',
+  `typeReport` varchar(255) DEFAULT NULL,
+  `modalidad` varchar(255) DEFAULT NULL,
+  `dayInitial` int(11) DEFAULT NULL,
+  `initialDate` date DEFAULT NULL,
+  `reportAlarms` tinyint(1) DEFAULT 1,
+  `tag` varchar(255) DEFAULT NULL,
+  `mcommName` varchar(255) DEFAULT NULL,
+  `mcommId` char(36) DEFAULT NULL,
+  `backgroundMain` char(36) DEFAULT NULL,
+  `heroMain` char(36) DEFAULT NULL,
+  `reportTag` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sensor_info`
+--
+
+CREATE TABLE `sensor_info` (
+  `id` char(36) NOT NULL,
+  `status` varchar(255) NOT NULL DEFAULT 'draft',
+  `sort` int(11) DEFAULT NULL,
+  `user_created` char(36) DEFAULT NULL,
+  `date_created` timestamp NULL DEFAULT NULL,
+  `user_updated` char(36) DEFAULT NULL,
+  `date_updated` timestamp NULL DEFAULT NULL,
+  `time` varchar(255) DEFAULT NULL,
+  `tag` varchar(255) DEFAULT NULL,
+  `zeroFormat` varchar(255) DEFAULT '0',
+  `mcommId` char(36) DEFAULT NULL,
+  `typeId` char(36) DEFAULT NULL,
+  `realTime` tinyint(1) DEFAULT NULL,
+  `positiveFormat` varchar(255) DEFAULT '#,##0.',
+  `negativeFormat` varchar(255) DEFAULT '-#,##0.',
+  `groupId` char(36) DEFAULT NULL,
+  `unitId` char(36) DEFAULT NULL,
+  `formatedName` text DEFAULT NULL,
+  `vMin` decimal(10,5) DEFAULT NULL,
+  `vMax` decimal(20,5) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `accumulated` tinyint(1) DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sensor_info_unit_info`
+--
+
+CREATE TABLE `sensor_info_unit_info` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `sensor_info_id` char(36) DEFAULT NULL,
+  `unit_info_id` char(36) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `setting_info`
+--
+
+CREATE TABLE `setting_info` (
+  `id` char(36) NOT NULL,
+  `status` varchar(255) NOT NULL DEFAULT 'draft',
+  `sort` int(11) DEFAULT NULL,
+  `user_created` char(36) DEFAULT NULL,
+  `date_created` timestamp NULL DEFAULT NULL,
+  `user_updated` char(36) DEFAULT NULL,
+  `date_updated` timestamp NULL DEFAULT NULL,
+  `dashboardSettings` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '{"tableFontSize":4,"tableAlertFontSize":4,"tableVisible":false,"cardsVisible":true,"alertsVisible":true,"groupsVisible":true}' CHECK (json_valid(`dashboardSettings`)),
+  `mapSettings` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '{"latitud":0,"longitud":0,"zoom":1}' CHECK (json_valid(`mapSettings`)),
+  `alertSettings` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '{on: \'#157347\', off: \'#31d2f2\', message: \'#ffffff\'}' CHECK (json_valid(`alertSettings`)),
+  `timezoneSetings` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '{"timezone":"UTC"}' CHECK (json_valid(`timezoneSetings`)),
+  `groupSettings` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '\'"\\\\"{\\\\\\\\\\\\\\\\\\\\"colorGroup\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\'#157347\\\\\\\\\\\', \\\\\\\\\\\\\\\\\\\\"colorSensor\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\'#31D2F2\\\\\\\\\\\'}\\\\",\\\\"{\\\\\\\\\\\\\\\\\\\\"colorTextGroup\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\'#ffffff\\\\\\\\\\\', \\\\\\\\\\\\\\\\\\\\"colorTextSensor\\\\\\\\\\\\\\\\\\\\":\\\\\\\\\\\'#ffffff\\\\\\\\\\\'}\\\\""\'',
+  `cardSettings` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '{"all":true,"cardSize":1,"headerSize":5,"contentSize":3,"footerSize":5,"tagSize":1,"nameSize":1,"numberSize":2,"unitSize":1}' CHECK (json_valid(`cardSettings`)),
+  `tableSettings` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '{"tableFontSize":1}' CHECK (json_valid(`tableSettings`)),
+  `graphSettings` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '{"options":true}' CHECK (json_valid(`graphSettings`)),
+  `layoutSettings` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '{     "inputStyle": "outlined",     "colorScheme": "light",     "theme": "\'bootstrap4-light-blue\', \'light\'",     "ripple": false,     "menuMode": "static",     "scale": 14,     "staticMenuDesktopInactive": false,     "overlayMenuActive": false,     "profileSidebarVisible": false,     "configSidebarVisible": false,     "staticMenuMobileActive": false,     "menuHoverActive": false }',
+  `userId` char(36) NOT NULL,
+  `config` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`config`)),
+  `state` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`state`))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `site_info`
+--
+
+CREATE TABLE `site_info` (
+  `id` char(36) NOT NULL,
+  `status` varchar(255) NOT NULL DEFAULT 'draft',
+  `sort` int(11) DEFAULT NULL,
+  `user_created` char(36) DEFAULT NULL,
+  `date_created` timestamp NULL DEFAULT NULL,
+  `user_updated` char(36) DEFAULT NULL,
+  `date_updated` timestamp NULL DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `organizationId` char(36) DEFAULT NULL,
+  `latitude` varchar(255) DEFAULT NULL,
+  `longitud` varchar(255) DEFAULT NULL,
+  `googleMaps` varchar(255) DEFAULT NULL,
+  `address` text DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `timezone_info`
+--
+
+CREATE TABLE `timezone_info` (
+  `id` char(36) NOT NULL,
+  `status` varchar(255) NOT NULL DEFAULT 'draft',
+  `sort` int(11) DEFAULT NULL,
+  `user_created` char(36) DEFAULT NULL,
+  `date_created` timestamp NULL DEFAULT NULL,
+  `user_updated` char(36) DEFAULT NULL,
+  `date_updated` timestamp NULL DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `timezone` varchar(255) DEFAULT NULL,
+  `utc` int(11) DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `type_info`
+--
+
+CREATE TABLE `type_info` (
+  `id` char(36) NOT NULL,
+  `status` varchar(255) NOT NULL DEFAULT 'draft',
+  `sort` int(11) DEFAULT NULL,
+  `user_created` char(36) DEFAULT NULL,
+  `date_created` timestamp NULL DEFAULT NULL,
+  `user_updated` char(36) DEFAULT NULL,
+  `date_updated` timestamp NULL DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ultrafiltration_info`
+--
+
+CREATE TABLE `ultrafiltration_info` (
+  `id` char(36) NOT NULL,
+  `status` varchar(255) NOT NULL DEFAULT 'draft',
+  `sort` int(11) DEFAULT NULL,
+  `user_created` char(36) DEFAULT NULL,
+  `date_created` timestamp NULL DEFAULT NULL,
+  `user_updated` char(36) DEFAULT NULL,
+  `date_updated` timestamp NULL DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `mcommId` char(36) DEFAULT NULL,
+  `startDate` datetime DEFAULT NULL,
+  `feedTemperature` char(36) DEFAULT NULL,
+  `feedFlow` char(36) DEFAULT NULL,
+  `concBleedFlow` char(36) DEFAULT NULL,
+  `filtrateFlow` char(36) DEFAULT NULL,
+  `totalizadorProducto` char(36) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `unit_info`
+--
+
+CREATE TABLE `unit_info` (
+  `id` char(36) NOT NULL,
+  `status` varchar(255) NOT NULL DEFAULT 'draft',
+  `sort` int(11) DEFAULT NULL,
+  `user_created` char(36) DEFAULT NULL,
+  `date_created` timestamp NULL DEFAULT NULL,
+  `user_updated` char(36) DEFAULT NULL,
+  `date_updated` timestamp NULL DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `display` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+```
+
+---
+
+
+
+## Tablas de la base de datos grupoislasdata
+
+> Esta base de datos contiene los datos de los procesos de ósmosis y los reportes de los flexy
+
+
+### Modelo Entidad Relación base datos grupoislas
+
+![MER](/img/mariadb/mergrupoislasdata.svg "Modelo Entidad Relacion") 
+
+### Esquema de Base de Datos Tabla
+
+###  `osmosis_daily`
+
+| Columna                        | Tipo                | Restricciones                | Descripción                         |
+|--------------------------------|---------------------|-----------------------------|-------------------------------------|
+| id                             | int(11)             | NOT NULL                    | Identificador único                |
+| mcommName                      | varchar(191)        | NOT NULL                    | Nombre de la entidad               |
+| timezone                       | varchar(191)        | NOT NULL                    | Zona horaria                       |
+| diffUtc                        | int(11)             | NOT NULL                    | Diferencia UTC                     |
+| dateString                    | varchar(191)        | NOT NULL                    | Fecha en formato de cadena         |
+| osmosisTag                     | varchar(191)        | NOT NULL                    | Etiqueta de osmosis                |
+| permeateFlow                   | decimal(65,30)      | NOT NULL                    | Flujo de permeado                  |
+| concetrateFlow                 | decimal(65,30)      | NOT NULL                    | Flujo de concentrado               |
+| feedPressure                   | decimal(65,30)      | NOT NULL                    | Presión de alimentación            |
+| concentratePressure            | decimal(65,30)      | NOT NULL                    | Presión de concentrado             |
+| permeatePressure               | decimal(65,30)      | NOT NULL                    | Presión de permeado                |
+| calculatedFeedTDS              | decimal(65,30)      | NOT NULL                    | TDS de alimentación calculado      |
+| feedConductivity               | decimal(65,30)      | NOT NULL                    | Conductividad de alimentación      |
+| feedTDS                        | decimal(65,30)      | NOT NULL                    | TDS de alimentación                |
+| calculatedPermTDS              | decimal(65,30)      | NOT NULL                    | TDS de permeado calculado          |
+| permeateConductivity           | decimal(65,30)      | NOT NULL                    | Conductividad de permeado          |
+| permeateTDS                    | decimal(65,30)      | NOT NULL                    | TDS de permeado                   |
+| calculatedTempC                | decimal(65,30)      | NOT NULL                    | Temperatura calculada en Celsius   |
+| feedTempC                      | decimal(65,30)      | NOT NULL                    | Temperatura de alimentación en Celsius |
+| feedFlow                       | decimal(65,30)      | NOT NULL                    | Flujo de alimentación              |
+| daysofOperation                | decimal(65,30)      | NOT NULL                    | Días de operación                  |
+| recoveryPercentage             | decimal(65,30)      | NOT NULL                    | Porcentaje de recuperación         |
+| differentialPressure           | decimal(65,30)      | NOT NULL                    | Presión diferencial                |
+| temperatureCorrectionFactor    | decimal(65,30)      | NOT NULL                    | Factor de corrección de temperatura |
+| calculatedFeedBrineAvgConc     | decimal(65,30)      | NOT NULL                    | Concentración promedio de sal en alimentación calculada |
+| feedBrineOsmoticPressure       | decimal(65,30)      | NOT NULL                    | Presión osmótica de la sal en alimentación |
+| permeateOsmoticPressure        | decimal(65,30)      | NOT NULL                    | Presión osmótica de la sal en permeado |
+| netDrivingPressure             | decimal(65,30)      | NOT NULL                    | Presión neta impulsora             |
+| normalizedPermeateFlow         | decimal(65,30)      | NOT NULL                    | Flujo de permeado normalizado      |
+| normalizedPermeateSaltPassage  | decimal(65,30)      | NOT NULL                    | Paso normalizado de sal de permeado |
+| normalizedPermeateSaltRejection| decimal(65,30)      | NOT NULL                    | Rechazo normalizado de sal de permeado |
+| compoundIndex                  | varchar(191)        | NOT NULL                    | Índice compuesto                   |
+| date                           | date                | NOT NULL                    | Fecha                              |
+| firstDateString                | varchar(191)        | NOT NULL                    | Primera fecha en formato de cadena |
+| normalizedPermeateFlowPercentage | decimal(65,30)    | NOT NULL                    | Porcentaje de flujo de permeado normalizado |
+| normalizedPermeateSaltPassagePercentage | decimal(65,30) | NOT NULL               | Porcentaje de paso de sal de permeado normalizado |
+| normalizedPermeateSaltRejectionPercentage | decimal(65,30) | NOT NULL            | Porcentaje de rechazo de sal de permeado normalizado |
+| feedTempF                      | decimal(65,30)      | NOT NULL                    | Temperatura de alimentación en Fahrenheit |
+| originMode                     | longtext            | NOT NULL (JSON válido)       | Modo de origen (JSON válido)       |
+
+### `osmosis_daily_test`
+
+| Columna                        | Tipo                | Restricciones                | Descripción                         |
+|--------------------------------|---------------------|-----------------------------|-------------------------------------|
+| id                             | int(11)             | NOT NULL                    | Identificador único                |
+| mcommName                      | varchar(191)        | NOT NULL                    | Nombre de la entidad               |
+| timezone                       | varchar(191)        | NOT NULL                    | Zona horaria                       |
+| diffUtc                        | int(11)             | NOT NULL                    | Diferencia UTC                     |
+| date                           | date                | NOT NULL                    | Fecha                              |
+| dateString                    | varchar(191)        | DEFAULT NULL                | Fecha en formato de cadena (opcional) |
+| firstDateString                | varchar(191)        | DEFAULT NULL                | Primera fecha en formato de cadena (opcional) |
+| osmosisTag                     | varchar(191)        | DEFAULT NULL                | Etiqueta de osmosis (opcional)     |
+| permeateFlow                   | decimal(65,30)      | DEFAULT NULL                | Flujo de permeado (opcional)       |
+| concetrateFlow                 | decimal(65,30)      | DEFAULT NULL                | Flujo de concentrado (opcional)    |
+| feedPressure                   | decimal(65,30)      | DEFAULT NULL                | Presión de alimentación (opcional) |
+| concentratePressure            | decimal(65,30)      | DEFAULT NULL                | Presión de concentrado (opcional)  |
+| permeatePressure               | decimal(65,30)      | DEFAULT NULL                | Presión de permeado (opcional)     |
+| calculatedFeedTDS              | decimal(65,30)      | DEFAULT NULL                | TDS de alimentación calculado (opcional) |
+| feedConductivity               | decimal(65,30)      | DEFAULT NULL                | Conductividad de alimentación (opcional) |
+| feedTDS                        | decimal(65,30)      | DEFAULT NULL                | TDS de alimentación (opcional)     |
+| calculatedPermTDS              | decimal(65,30)      | DEFAULT NULL                | TDS de permeado calculado (opcional) |
+| permeateConductivity           | decimal(65,30)      | DEFAULT NULL                | Conductividad de permeado (opcional) |
+| permeateTDS                    | decimal(65,30)      | DEFAULT NULL                | TDS de permeado (opcional)         |
+| calculatedTempC                | decimal(65,30)      | DEFAULT NULL                | Temperatura calculada en Celsius (opcional) |
+| feedTempF                      | decimal(65,30)      | DEFAULT NULL                | Temperatura de alimentación en Fahrenheit (opcional) |
+| feedTempC                      | decimal(65,30)      | DEFAULT NULL                | Temperatura de alimentación en Celsius (opcional) |
+| feedFlow                       | decimal(65,30)      | DEFAULT NULL                | Flujo de alimentación (opcional)  |
+| daysofOperation                | decimal(65,30)      | DEFAULT NULL                | Días de operación (opcional)       |
+| recoveryPercentage             | varchar(191)        | DEFAULT NULL                | Porcentaje de recuperación (opcional) |
+| differentialPressure           | decimal(65,30)      | DEFAULT NULL                | Presión diferencial (opcional)    |
+| temperatureCorrectionFactor    | decimal(65,30)      | DEFAULT NULL                | Factor de corrección de temperatura (opcional) |
+| calculatedFeedBrineAvgConc     | decimal(65,30)      | DEFAULT NULL                | Concentración promedio de sal en alimentación calculada (opcional) |
+| feedBrineOsmoticPressure       | decimal(65,30)      | DEFAULT NULL                | Presión osmótica de la sal en alimentación (opcional) |
+| permeateOsmoticPressure        | decimal(65,30)      | DEFAULT NULL                | Presión osmótica de la sal en permeado (opcional) |
+| netDrivingPressure             | decimal(65,30)      | DEFAULT NULL                | Presión neta impulsora (opcional) |
+| normalizedPermeateFlow         | decimal(65,30)      | DEFAULT NULL                | Flujo de permeado normalizado (opcional) |
+| normalizedPermeateSaltPassage  | decimal(65,30)      | DEFAULT NULL                | Paso normalizado de sal de permeado (opcional) |
+| normalizedPermeateSaltRejection| decimal(65,30)      | DEFAULT NULL                | Rechazo normalizado de sal de permeado (opcional) |
+| normalizedPermeateFlowPercentage | decimal(65,30)    | DEFAULT NULL                | Porcentaje de flujo de permeado normalizado (opcional) |
+| normalizedPermeateSaltPassagePercentage | decimal(65,30) | DEFAULT NULL           | Porcentaje de paso de sal de permeado normalizado (opcional) |
+| normalizedPermeateSaltRejectionPercentage | decimal(65,30) | DEFAULT NULL        | Porcentaje de rechazo de sal de permeado normalizado (opcional) |
+| compoundIndex                  | varchar(191)        | NOT NULL                    | Índice compuesto (opcional)        |
+
+### `report_pdf`
+
+| Columna                        | Tipo                | Restricciones                | Descripción                         |
+|--------------------------------|---------------------|-----------------------------|-------------------------------------|
+| id                             | int(11)             | NOT NULL                    | Identificador único                |
+| reportId                       | varchar(191)        | NOT NULL                    | ID del informe                     |
+| date                           | date                | NOT NULL                    | Fecha del informe                  |
+| data                           | longtext            | NOT NULL (JSON válido)       | Datos del informe (JSON válido)    |
+| compoundIndex                  | varchar(191)        | NOT NULL                    | Índice compuesto                   |
+| dateString                    | varchar(191)        | NOT NULL                    | Fecha en formato de cadena         |
+| mcommName                      | varchar(191)        | NOT NULL                    | Nombre de la entidad               |
+| reportTag                      | varchar(191)        | NOT NULL                    | Etiqueta del informe               |
+
+
+
+### `sensor_daily`
+
+| Columna                | Tipo           | Restricciones               | Descripción                           |
+|------------------------|----------------|-------------------------------|---------------------------------------|
+| id                     | int(11)        | NOT NULL                     | Identificador único                  |
+| recordCount            | int(11)        | DEFAULT NULL                 | Cuenta de registros                  |
+| count                  | int(11)        | DEFAULT NULL                 | Cuenta                              |
+| min                    | decimal(65,30)| DEFAULT NULL                 | Valor mínimo                         |
+| max                    | decimal(65,30)| DEFAULT NULL                 | Valor máximo                         |
+| mean                   | decimal(65,30)| DEFAULT NULL                 | Valor medio                          |
+| mode                   | decimal(65,30)| DEFAULT NULL                 | Moda                                |
+| median                 | decimal(65,30)| DEFAULT NULL                 | Mediana                             |
+| standardDeviation      | decimal(65,30)| DEFAULT NULL                 | Desviación estándar                  |
+| lowerBound             | decimal(65,30)| DEFAULT NULL                 | Límite inferior                     |
+| upperBound             | decimal(65,30)| DEFAULT NULL                 | Límite superior                     |
+| threshold              | decimal(65,30)| DEFAULT NULL                 | Umbral                              |
+| mcommName              | varchar(191)  | NOT NULL                     | Nombre de la entidad                 |
+| timezone               | varchar(191)  | NOT NULL                     | Zona horaria                         |
+| diffUtc                | int(11)        | NOT NULL                     | Diferencia UTC                       |
+| sensorTag              | varchar(191)  | NOT NULL                     | Tag del sensor                       |
+| startDateUtc           | datetime(3)    | NOT NULL                     | Fecha de inicio en formato UTC       |
+| endDateUtc             | datetime(3)    | NOT NULL                     | Fecha de fin en formato UTC          |
+| dateTimeFirst          | datetime(3)    | DEFAULT NULL                 | Primera fecha y hora en formato UTC (opcional)|
+| dateTimeLast           | datetime(3)    | DEFAULT NULL                 | Última fecha y hora en formato UTC (opcional)|
+| dateString             | varchar(191)  | NOT NULL                     | Fecha en formato de cadena           |
+| spread                 | decimal(65,30)| DEFAULT NULL                 | Diferencia entre máximo y mínimo     |
+| type                   | varchar(191)  | NOT NULL                     | Tipo de sensor                       |
+| compoundIndex          | varchar(191)  | NOT NULL                     | Índice compuesto                     |
+| date                   | date           | NOT NULL                     | Fecha                               |
+| dataRecords            | longtext       | NOT NULL CHECK (json_valid(dataRecords))| Registros de datos (en formato JSON válido)|
+
+
+
+### `sensor_monthly`
+
+| Columna                | Tipo           | Restricciones               | Descripción                           |
+|------------------------|----------------|-------------------------------|---------------------------------------|
+| id                     | int(11)        | NOT NULL                     | Identificador único                  |
+| recordCount            | int(11)        | DEFAULT NULL                 | Cuenta de registros                  |
+| count                  | int(11)        | DEFAULT NULL                 | Cuenta                              |
+| min                    | decimal(65,30)| DEFAULT NULL                 | Valor mínimo                         |
+| max                    | decimal(65,30)| DEFAULT NULL                 | Valor máximo                         |
+| mean                   | decimal(65,30)| DEFAULT NULL                 | Valor medio                          |
+| mode                   | decimal(65,30)| DEFAULT NULL                 | Moda                                |
+| median                 | decimal(65,30)| DEFAULT NULL                 | Mediana                             |
+| standardDeviation      | decimal(65,30)| DEFAULT NULL                 | Desviación estándar                  |
+| lowerBound             | decimal(65,30)| DEFAULT NULL                 | Límite inferior                     |
+| upperBound             | decimal(65,30)| DEFAULT NULL                 | Límite superior                     |
+| threshold              | decimal(65,30)| DEFAULT NULL                 | Umbral                              |
+| mcommName              | varchar(191)  | NOT NULL                     | Nombre de la entidad                 |
+| timezone               | varchar(191)  | NOT NULL                     | Zona horaria                         |
+| diffUtc                | int(11)        | NOT NULL                     | Diferencia UTC                       |
+| sensorTag              | varchar(191)  | NOT NULL                     | Tag del sensor                       |
+| startDateUtc           | datetime(3)    | NOT NULL                     | Fecha de inicio en formato UTC       |
+| endDateUtc             | datetime(3)    | NOT NULL                     | Fecha de fin en formato UTC          |
+| dateTimeFirst          | datetime(3)    | DEFAULT NULL                 | Primera fecha y hora en formato UTC (opcional)|
+| dateTimeLast           | datetime(3)    | DEFAULT NULL                 | Última fecha y hora en formato UTC (opcional)|
+| date                   | date           | NOT NULL                     | Fecha                               |
+| spread                 | decimal(65,30)| DEFAULT NULL                 | Diferencia entre máximo y mínimo     |
+| type                   | varchar(191)  | NOT NULL                     | Tipo de sensor                       |
+| compoundIndex          | varchar(191)  | NOT NULL                     | Índice compuesto                     |
+| monthString            | varchar(191)  | NOT NULL                     | Cadena de mes                        |
+| dataRecords            | longtext       | NOT NULL CHECK (json_valid(dataRecords))| Registros de datos (en formato JSON válido)|
+
+
+
+### `sensor_weekly`
+
+| Columna                | Tipo           | Restricciones               | Descripción                           |
+|------------------------|----------------|-------------------------------|---------------------------------------|
+| id                     | int(11)        | NOT NULL                     | Identificador único                  |
+| recordCount            | int(11)        | DEFAULT NULL                 | Cuenta de registros                  |
+| count                  | int(11)        | DEFAULT NULL                 | Cuenta                              |
+| min                    | decimal(65,30)| DEFAULT NULL                 | Valor mínimo                         |
+| max                    | decimal(65,30)| DEFAULT NULL                 | Valor máximo                         |
+| mean                   | decimal(65,30)| DEFAULT NULL                 | Valor medio                          |
+| mode                   | decimal(65,30)| DEFAULT NULL                 | Moda                                |
+| median                 | decimal(65,30)| DEFAULT NULL                 | Mediana                             |
+| standardDeviation      | decimal(65,30)| DEFAULT NULL                 | Desviación estándar                  |
+| lowerBound             | decimal(65,30)| DEFAULT NULL                 | Límite inferior                     |
+| upperBound             | decimal(65,30)| DEFAULT NULL                 | Límite superior                     |
+| threshold              | decimal(65,30)| DEFAULT NULL                 | Umbral                              |
+| mcommName              | varchar(191)  | NOT NULL                     | Nombre de la entidad                 |
+| timezone               | varchar(191)  | NOT NULL                     | Zona horaria                         |
+| diffUtc                | int(11)        | NOT NULL                     | Diferencia UTC                       |
+| sensorTag              | varchar(191)  | NOT NULL                     | Tag del sensor                       |
+| startDateUtc           | datetime(3)    | NOT NULL                     | Fecha de inicio en formato UTC       |
+| endDateUtc             | datetime(3)    | NOT NULL                     | Fecha de fin en formato UTC          |
+| dateTimeFirst          | datetime(3)    | DEFAULT NULL                 | Primera fecha y hora en formato UTC (opcional)|
+| dateTimeLast           | datetime(3)    | DEFAULT NULL                 | Última fecha y hora en formato UTC (opcional)|
+| date                   | date           | NOT NULL                     | Fecha                               |
+| spread                 | decimal(65,30)| DEFAULT NULL                 | Diferencia entre máximo y mínimo     |
+| type                   | varchar(191)  | NOT NULL                     | Tipo de sensor                       |
+| compoundIndex          | varchar(191)  | NOT NULL                     | Índice compuesto                     |
+| weekString             | varchar(191)  | NOT NULL                     | Cadena de semana                     |
+| dataRecords            | longtext       | NOT NULL CHECK (json_valid(dataRecords))| Registros de datos (en formato JSON válido)|

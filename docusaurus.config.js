@@ -11,11 +11,11 @@ import { themes as prismThemes } from "prism-react-renderer";
 /** @type {import('@docusaurus/types').Config} */
 const config = {
     title: "Islas Cloud",
-    tagline: "Manual de Usuario sistema Islas Cloud",
+    tagline: "Manual Tecnico",
     favicon: "img/favicon.ico",
 
     // Set the production url of your site here
-    url: "https://manual-usuario-islas-cloud.netlify.app",
+    url: "https://manual-tecnico-islas-cloud.netlify.app",
     // Set the /<baseUrl>/ pathname under which your site is served
     // For GitHub pages deployment, it is often '/<projectName>/'
     baseUrl: "/",
@@ -90,7 +90,7 @@ const config = {
             //   },
             // },            
             zoom: {
-                selector: '.markdown :not(em) > img',
+                selector: '.markdown :not(em) > img[src$=".png"], .markdown :not(em) > img[src$=".jpg"]',
                 background: {
                   light: 'rgb(255, 255, 255)',
                   dark: 'rgb(50, 50, 50)'
@@ -101,37 +101,34 @@ const config = {
               },  
            
             navbar: {
-                title: "Islas Cloud",
+                title: "IslasCloud",               
+                hideOnScroll:false,
                 logo: {
                     alt: "Islas Cloud mobile",
                     src: "img/IslasCloud_Logo_icono_color.png"
                 },
                 items: [
-                    {
-                        type: "docSidebar",
-                        sidebarId: "tutorialSidebar",
-                        position: "left",
-                        label: "Docs"
-                    },
-                    {
-                        href: "https://github.com/facebook/docusaurus",
-                        label: "GitHub",
-                        position: "right"
-                    }
+                    // {
+                    //     type: "docSidebar",
+                    //     sidebarId: "tutorialSidebar",
+                    //     position: "right",
+                    //     label: "Docs 📚"
+                    // }
+                    
                 ]
             },
             footer: {
                 style: "dark",
-                links: [
-                    {
-                        title: "Docs",
-                        items: [
-                            {
-                                label: "Introducción",
-                                to: "/docs/intro"
-                            }
-                        ]
-                     },
+                // links: [
+                //     {
+                //         title: "Docs 📚",
+                //         items: [
+                //             {
+                //                 label: "Introducción",
+                //                 to: "/docs/intro"
+                //             }
+                //         ]
+                //      },
                     // {
                     //     title: "Community",
                     //     items: [
@@ -162,15 +159,19 @@ const config = {
                     //         }
                     //     ]
                     // }
-                ],
+                // ],
                 logo: {
                     alt: "Islas Cloud mobile",
-                    src: "img/IslasCloud_Logo_icono_color.png",
-                    height: "32px",
-                    width: "48px"
+                    src: "img/iconos/Destralogotipoblanco.png",
+                    height: "64px",
+                    width: "80px"
                 },
 
-                copyright: `Copyright © ${new Date().getFullYear()} Isials Cloud, Inc. Built with Docusaurus.`
+                copyright: `By DESTRA ©
+                version: 2.1.18
+                5cae7d6 
+                ${new Date().getFullYear()}
+                Desarrollo de Soluciones en Tratamiento de Agua.`
             },
             prism: {
                 theme: prismThemes.github,
