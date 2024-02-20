@@ -13,10 +13,18 @@ import mediumZoom from 'medium-zoom';
 {/* <span class="badge badge--info">Info</span> */}
 <br/>
 
-## Técnologias aplicas del Sistema Islas Cloud
+## Técnologias aplicas del Sistema <span className="tituloIslasCloudnormal">Islas</span><span className="tituloIslasCloud font-black ">Cloud</span>
 
-## Diagrama de la arqitéctura 
-![arquitectura](/img/arquitectura.png "Arquitectura")
+## Diagrama de la Arquitéctura 
+![arquitectura](/img/diagrama.png "Arquitectura")
+
+---
+
+![arquitectura](/img/diagrama-1.png "Arquitectura")
+
+---
+
+![arquitectura](/img/diagrama-2.png "Arquitectura")
 ## Front-end
 - Desarrollado en **Angular 17.2.0** con **TypeScript 4.9.4**
 - Framework de componentes **PrimeNG** 
@@ -31,6 +39,7 @@ import mediumZoom from 'medium-zoom';
 - Arquitectura modular y escalable
 - Patrón de arquitectura MVC
 - Autenticación y autorización con **Passport JWT**  
+- Directus
 - API RESTful con routing declarativo
 - **Axios 3.0.0** para manejo de peticiones para **MariaDB**
 - Caché en **Redis**
@@ -39,7 +48,7 @@ import mediumZoom from 'medium-zoom';
 - Contenerización con **Docker**
 
 ## Base de datos
-- **PostgreSQL 12** como base de datos relacional
+- **mariaDB 10** como base de datos relacional
 - Replicación maestro-esclavo para alta disponibilidad
 - Sharding para particionamiento de datos
 - Backups automáticos a almacenamiento S3

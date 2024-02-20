@@ -10,9 +10,9 @@ import { themes as prismThemes } from "prism-react-renderer";
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-    title: "Islas Cloud",
-    tagline: "Manual Tecnico",
-    favicon: "img/favicon.ico",
+    title: "Serrot Consultores",
+    tagline: "Guía de Estilos",
+    favicon: "img/iconos/favicon.ico",
 
     // Set the production url of your site here
     url: "https://manual-tecnico-islas-cloud.netlify.app",
@@ -22,7 +22,7 @@ const config = {
 
     // GitHub pages deployment config.
     // If you aren't using GitHub pages, you don't need these.
-    organizationName: "islas cloud", // Usually your GitHub org/user name.
+    organizationName: "serrot consultores", // Usually your GitHub org/user name.
     projectName: "docusaurus", // Usually your repo name.
 
     onBrokenLinks: "throw",
@@ -101,11 +101,13 @@ const config = {
               },  
            
             navbar: {
-                title: "IslasCloud",               
+                title: "",               
                 hideOnScroll:false,
                 logo: {
-                    alt: "Islas Cloud mobile",
-                    src: "img/IslasCloud_Logo_icono_color.png"
+                    alt: "Serrot Consultores",
+                    src: "img/iconos/logoblueserrot.png",
+                    height: "72px",
+                    width: "150px"
                 },
                 items: [
                     // {
@@ -162,16 +164,16 @@ const config = {
                 // ],
                 logo: {
                     alt: "Islas Cloud mobile",
-                    src: "img/iconos/Destralogotipoblanco.png",
+                    src: "img/iconos/logowhiteserrot.png",
                     height: "64px",
-                    width: "80px"
+                    width: "150px"
                 },
 
-                copyright: `By DESTRA ©
-                version: 2.1.18
-                5cae7d6 
+                copyright: `By SERROT CONSULTORES ©
+                version: 1.0.0
+               
                 ${new Date().getFullYear()}
-                Desarrollo de Soluciones en Tratamiento de Agua.`
+                Desarrollo de Soluciones de Técnologicas.`
             },
             prism: {
                 theme: prismThemes.github,

@@ -8,33 +8,33 @@ const  minuscula =(arg) => {
 } 
 
 const FeatureList = [
-  // {
-  //   title: 'Completo y actualizado',
-  //   Svg: require('@site/static/img/undraw_qa_engineers_dg-5-p.svg').default,
-  //   description: (
-  //     <>
-  //       El manual de usuario proporciona toda la información necesaria para que el usuario pueda utilizar el sistema de forma eficaz.
-  //     </>
-  //   ),
-  // },
-  // {
-  //   title: 'Client Manager',
-  //   Svg: require('@site/static/img/undraw_engineering_team_a7n2.svg').default,
-  //   description: (
-  //     <>
-  //       Usuario Client Manager.
-  //     </>
-  //   ),
-  // },
-  // {
-  //   title: 'Client User',
-  //   Svg: require('@site/static/img/undraw_heatmap_uyye.svg').default,
-  //   description: (
-  //     <>
-  //       Usuario Client User.
-  //     </>
-  //   ),
-  // },
+  {
+    title: 'Angular Unifica tu desarrollo',
+    Svg: require('@site/static/img/undraw_usability_testing_re_uu1g.svg').default,
+    description: (
+      <>
+        <p>Con la Guía de Estilos Angular, crea aplicaciones web consistentes, eficientes y con una estética impecable.</p>
+      </>
+    ),
+  },
+  {
+    title: 'Ahorra tiempo y esfuerzo',
+    Svg: require('@site/static/img/undraw_add_information_j2wg.svg').default,
+    description: (
+      <>
+        <p>Olvídate de reinventar la rueda. La Guía de Estilos Angular te ofrece componentes predefinidos y buenas prácticas para agilizar tu desarrollo.</p>
+      </>
+    ),
+  },
+  {
+    title: 'La llave para una experiencia de usuario excepcional',
+    Svg: require('@site/static/img/undraw_heatmap_uyye.svg').default,
+    description: (
+      <>
+        <p> La Guía de Estilos Angular te ayuda a implementar los principios de accesibilidad y diseño web responsive.</p>
+      </>
+    ),
+  },
   
   // {
   //   title: 'Corporate Manager',
@@ -71,15 +71,15 @@ function Feature({Svg, title, description}) {
           <p>{description}</p>          
 
         </div>     
-        {/* <div className="card__footer">
+        <div className="card__footer">
           <div className={styles.buttons}>
-            <Link
+            {/* <Link
               className="button button--block button--primary button--lg "
               to={`/docs/usuarios/${'user_' + minuscula(title)}`}>
               Acceder
-            </Link>
+            </Link> */}
           </div>
-        </div>  */}
+        </div> 
       </div>
     </div>
   );

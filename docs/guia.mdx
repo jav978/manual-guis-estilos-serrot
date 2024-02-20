@@ -9,26 +9,106 @@ import Highlight from '@site/src/components/Highlight/Highlight';
 
 <Highlight color="#999999">Versión 1.0</Highlight>
 
-## Manual de usuario Islas Cloud
+## Instalaccion y configuración de Tecnologias a usuarios
 
-### Introducción
+## Instalación de Angular
 
-> Bienvenido al manual de usuario de Islas**Cloud** mobile, la plataforma de reportes en tiempo real que captura información de sensores flexy. Este manual le guiará en el uso y configuración del sistema para sacar el máximo provecho.
+### Paso 1: Instalar Node.js y npm
 
-> Este manual de usuario por objeto, proporcionar al usuario de la plataforma Islas**Cloud** Mobile, la guía necesaria para utilizar el sistema, de una manera amigable y sencilla con los procedimientos adecuados, bajo un esquema de imágenes con las capturas de pantalla, donde se mostrará visualmente el entorno principal, los diferentes módulos y las configuraciones de la aplicación.
+> Para instalar Angular, primero necesitas tener Node.js y npm instalados en tu equipo. Puedes descargarlos desde el sitio web oficial de Node.js: [https://nodejs.org/en/download/](https://nodejs.org/en/download/)
 
-### Requisitos del sistema
-1. Computadora con Windows 7 o superior, o MacOS 10.12 o superior o linux cualquier distribución
-2. Conexión a internet de alta velocidad
-Navegador web (recomendado Chrome o Firefox)
-3. Cuenta de usuario creada en la plataforma
+### Nodejs 
 
-### Funcionalidades principales
-> Captura de datos en tiempo real de sensores flexy
-Tableros personalizables con gráficos e indicadores
-Alertas y notificaciones configurables
-Generación de reportes automáticos y a demanda
-API de integración con otros sistemas
-Rol de administrador para gestionar usuarios y configuraciones
-Primeros pasos
-Acceder a la plataforma en [https://islascloud.destraislas.com/landing-manager/login](https://islascloud.destraislas.com/landing-manager/login) 
+![MER](/img/nodejs.png "Nodejs") 
+
+
+### Paso 2: Instalar Angular CLI
+
+> Angular CLI es una herramienta que te permite crear, construir y ejecutar aplicaciones Angular. Puedes instalarla usando npm:
+
+### Angular cli 
+![MER](/img/angular-cli.png "Angular Cli") 
+
+> Version de angular 
+
+![MER](/img/angular-version.png "Angular version") 
+
+### Paso 3: Crear un nuevo proyecto Angular
+> Para crear un nuevo proyecto Angular, puedes usar el comando **`ng new <nombre-proyecto>`**:
+
+![MER](/img/angular-new.png "Angular new") 
+
+> **ng new angular-serrot**
+Este comando creará una nueva carpeta llamada mi-proyecto con la estructura básica de un proyecto Angular.
+
+### Paso 4: Servir la aplicación
+
+> Para ejecutar la aplicación, puedes usar el comando **`ng serve -o`**:
+
+![MER](/img/angular-serve.png "Angular new") 
+
+
+> Este comando iniciará un servidor web local y abrirá la aplicación en tu navegador web.
+
+![MER](/img/angular-localhost.png "Angular new") 
+
+### Paso 5: Compilar la aplicación
+
+> Para compilar la aplicación para producción, puedes usar el comando **`ng build`** Este comando compilará la aplicación en un archivo JavaScript que puedes distribuir a tus usuarios.
+
+### Recursos adicionales:
+- **Documentación oficial de Angular**: https://angular.io/docs
+- **Guía de instalación de Angular**: https://angular.io/guide/quickstart
+- **Tutoriales de Angular**: https://angular.io/tutorial
+
+**Nota:** Es importante tener en cuenta que las versiones de Angular y Node.js pueden variar con el tiempo. Se recomienda consultar la documentación oficial de Angular para obtener la información más actualizada sobre la instalación y configuración.
+
+---
+
+
+## Instalación de Tailwind
+
+> Crea tu proyecto en **Angular** comience creando un nuevo proyecto **Angular** si aún no tiene uno configurado. El enfoque más común es utilizar Angular CLI.
+usa los siguientes comandos: **`ng new my-project
+cd my-projec`**
+
+### Paso 1: Instalar Tailwind CSS
+
+> Para instalar Tailwind CSS, puedes usar npm:
+**`npm install -D tailwindcss postcss autoprefixer`**
+
+![MER](/img/talilwindcss.png "Taliwindcss")  
+
+
+### Paso 2: Configurar la ruta Tailwind CSS.
+
+> Para configurar Tailwind CSS, necesitas crear un archivo `tailwind.config.js` Este archivo define la configuración de Tailwind CSS, como las clases que se generarán y la paleta de colores.
+
+![MER](/img/tailwindinit.png "Taliwindcss")  
+
+----
+
+
+![MER](/img/tailwindinit-1.png "Taliwindcss")  
+
+### Paso 3: Importar Tailwind CSS en tu aplicación Angular
+
+> Para importar Tailwind CSS en tu aplicación Angular, Agrega las directivas de Tailwind a tu CSS Agrega las directivas @tailwind para cada una de las capas de Tailwind a tu archivo **`./src/styles.scss`**.:
+
+![MER](/img/tailwindinit-2.png "Taliwindcss") 
+> En el archivo style.scss puedes agregar otras librerias de CSS como primeng
+
+### Paso 4: Usar Tailwind CSS en tu aplicación Angular
+
+> Ahora que ya has instalado, configurado e importado Tailwind CSS, puedes empezar a usarlo en tu aplicación Angular. Puedes usar las clases de Tailwind CSS para definir el estilo de tus elementos HTML.
+
+### Paso 5: Inicia el proyecto
+> Ejecuta el comando ng serve -o
+
+### Paso 6: Comienza a usar Tailwind en tu proyecto
+>Comienza a usar las clases de utilidad de Tailwind para dar estilo a tu contenido. coloca el en archivo app.component.html el siguyiente codigo.
+
+![MER](/img/template-1.png "Taliwindcss")  
+
+
+![MER](/img/angular-localhost.png "Taliwindcss")  

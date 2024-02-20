@@ -1,32 +1,3 @@
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
-
- /* @font-face {
-  font-family: 'HandelGothicDRegular';
-  src: local('HandelGothicDRegular'), 
-  url(/font/HandelGothicDRegular.ttf) 
-  format('ttf');
-  
-//}
-*/
-
-font-face {
-  font-family: 'Handel Gothic D, Regular';
-  src: local('HandleGothicDRegular'), local('HandleGothicD'),
-       url(/font/HandelGothiDRegular.ttf) 
-       format('ttf'),
-      
-  /* Agrega más formatos según sea necesario */
-}
-
-
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 @import 'font-awesome/css/font-awesome.min.css';
 
@@ -39,7 +10,9 @@ font-face {
   --ifm-color-primary-light: #0152b0;
   --ifm-color-primary-lighter: #0156b8;
   --ifm-color-primary-lightest: #0161d0;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.5);
+  --logo-claro: url("/static/img/iconos/logoblueserrot.png");
+  
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -51,10 +24,42 @@ font-face {
   --ifm-color-primary-light: #23bff4;
   --ifm-color-primary-lighter: #2fc2f5;
   --ifm-color-primary-lightest: #54cdf7;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --logo-oscuro: url("/static/img/iconos/logowhiteserrot.png");
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.9);
 }
 
-.coloBadge{
+
+/* 
+font-face {
+  font-family: Handel Gothic D, HandelGotD-Ligh, sans-serif;
+  src: local('HandleGothicDRegular'), local('HandleGothicD'),local('HandelGotD-Ligh'),
+       url(/font/HandelGothiDRegular.ttf) ,
+       url(/font/HandelGothicRegular.ttf),
+       url(/font/HandelGotDLig.ttf),
+       format('ttf'),      
+      
+   Agrega más formatos según sea necesario 
+} 
+*/
+
+font-face {
+  font-family: Handel Gothic D,  sans-serif;
+  src: local('HandleGothicDRegular'), local('HandelGothicDMedium'),
+       url(/font/HandelGothicDBold.otf) ,
+       url(/font/HandelGothicDMedium.otf),
+   
+       format('otf'),
+       
+      
+  /* Agrega más formatos según sea necesario */
+}
+
+
+.hero.hero--primary.heroBanner_src-pages-index-module{
+  background-image: radial-gradient(circle at 50% -20.71%, #be5af5 0, #a04ff4 16.67%, #7944f3 33.33%, #3c3cf2 50%, #0037f1 66.67%, #0034ef 83.33%, #0034ee 100%);
+}
+
+.colorBadge{
   background-color: #666666;
   padding: 10px;
   border-radius: 50px;
@@ -65,6 +70,7 @@ font-face {
   -moz-border-radius: 50px;
   -ms-border-radius: 50px;
   -o-border-radius: 50px;
+  
 }
 
 
@@ -75,15 +81,11 @@ font-face {
   width: 2rem;
 }
 
-.navbar__github {
-  -webkit-tap-highlight-color: transparent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  font-size: 1.4rem;
-  transition: background var(--ifm-transition-fast);
+.footer__logo {
+  margin-top: .3rem;
+  max-width: var(--ifm-footer-logo-max-width);
 }
+
 .zoom {
   overflow: hidden;
   display: inline-block;
@@ -108,18 +110,27 @@ html[data-theme='dark'] .navbar__github {
   background: var(--ifm-color-emphasis-200);
 }
 
+.font-size{
+  font-size: 1.1rem; 
+}
 
 .shadow-sm{
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
 }
 
 
-b {
-  font-family:'Handel Gothic D',sans-serif;
-  font-size: 1.6rem;
-  
 
-} 
+
+/* .tituloIslasCloud {
+  font-family:'Handel Gothic D',sans-serif;   
+  font-weight: bold;
+}
+
+.tituloIslasCloudnormal {
+  font-family:'Handel Gothic D',sans-serif;
+  font-weight: normal !important;  
+}  */
+
 .markdown :not(em) > img[src$=".png"],
 .markdown :not(em) > img[src$=".jpg"] {
   border-radius: 10px;
@@ -142,60 +153,123 @@ b {
 }
 
 
-
-.title{
-  
-  font-weight: medium;
-  font-family:'Handel Gothic D',sans-serif;
-  font-size: 2.8rem;
-}
-
-
-.ptitle{  
-  font-weight: medium !important;
-  font-family:'Handel Gothic D';
-  font-size: 1.5rem;
-}
-
-.spantitle{
+/* .spantitle{
   font-weight: bold !important;
-}
+} */
 .card{
   padding: 20px;
   place-content: center;
 }
 
 
-.features_src-components-HomepageFeatures-styles-module{
-  background-image:  linear-gradient(rgba(0, 0, 255, 0.2), rgba(255, 255, 0, 0.2)),
-  url("../../static/img/image1.png")  ;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center; 
+.navbar{
+  height: 4rem;
+ 
+}
+
+.navbar__items {
+
+  display: flex;
+  justify-content: flex-start;
   align-items: center;
-  margin:auto; 
-  width: 100vw;
-  height: 32.65vh;
-  overflow: hidden;
   
+}
+
+  
+
+  
+  .navbar__logo img {
+    align-items: center;
+    justify-content:center;
+    
+    height:100%;   
+    width: 100%;
+  }
+   
+    
+
+.footer{
+  height: 8rem;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .margin-bottom--sm img {
+ height: 50%;
+} */
+
+html[data-theme='light'] section.features_src-components-HomepageFeatures-styles-module {
+  color: #000;
+  background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+ 
+}
+
+html[data-theme='dark'] section.features_src-components-HomepageFeatures-styles-module {
+  color: #fff;
+  background:  radial-gradient(circle at 10% 20%, rgb(0, 0, 0) 0%, rgb(64, 64, 64) 90.2%);
 }
 /* 
-.highligh-content-aling{
-  
-} */
-.footer{
-  height: 11rem;
-  padding-bottom: 8px;
+ html[data-theme='light'] .navbar__inner.navbar__items.navbar__logo img {
+  background-image: url("./static/img/iconos/logoazul.png");
 }
+
+html[data-theme='dark'] .navbar__inner.navbar__items.navbar__logo img {
+  background-image: url("/static/img/iconos/logo-white-serrot.png");
+}  */
+
+/** Cambia el logo dinamicamanente **/
+[data-theme='light'] .navbar__logo img {
+  content: var(--logo-claro);
+}
+
+[data-theme='dark'] .navbar__logo img {
+  content: var(--logo-oscuro);
+} 
 
 .video{
   box-shadow: 0 8px 4px 0 rgb(0 0 0 / 0.  5);
 }
 
+.margin-bottom--sm{
+  
+  height: 100%;
+}
+.footer__copyright{
+  
+  font-weight: bold;
+}
+
 /* Estilos para tabletas y teléfonos */
-@media (max-width: 767px) {
+@media (max-width: 768px) or (max-width: 640px) {
   .video {
     width: 100%; /* Ajusta el ancho al 100% para dispositivos más pequeños */
     height: auto; /* Permite que la altura se ajuste automáticamente */
   }
+
+  .row{
+    gap:20px;
+  }
 }
+
+  @media  ((max-width: 640px) or (max-width: 996px)) {
+    .video {
+      width: 100%; /* Ajusta el ancho al 100% para dispositivos más pequeños */
+      height: auto; /* Permite que la altura se ajuste automáticamente */
+    }
+  
+    .row{
+      gap:20px;
+    }
+    
+    .footer__logo {
+      margin-top: 0.3rem;
+     height: 20%;
+     width: 20%;
+  }
+}
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

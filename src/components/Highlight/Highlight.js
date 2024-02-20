@@ -1,13 +1,13 @@
 import React from 'react';
 
-export default function Highlight({children, color}) {
+export default function Highlight({children, backgroundcolor,textcolor}) {
   return (
     <span
       style={{
-        backgroundColor: color,
+        backgroundColor: backgroundcolor,
         borderRadius: '20px',
         fontFamily:'Roboto',
-        color: '#fff',
+        color: textcolor,
         padding: '.5rem',
         textTransform: 'uppercase',
         fontSize: '0.9rem',

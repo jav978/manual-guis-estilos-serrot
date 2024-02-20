@@ -43,6 +43,22 @@ If you are using GitHub pages for hosting, this command is a convenient way to b
 
 
 
-user-manual.destraislas.com
 
-tech-manual.destraislas.com
+
+https://tailblocks.cc/
+https://www.tailwindcss-animated.com/
+Jorge Barrero
+5:17 p.m.
+primary: "#3000ff",
+          secondary: "#00bc76",
+          accent: "#00a0ff",
+          neutral: "#15140f",
+          "base-100": "#edffff",
+          info: "#00ceff",
+          success: "#95b800",
+          warning: "#bc8c00",
+          error: "#ff7398",
+        },
+Jorge Barrero
+5:25 p.m.
+https://www.youtube.com/watch?v=xzwVG06lp7M

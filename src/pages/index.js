@@ -15,8 +15,8 @@ function HomepageHeader() {
       <div className="container">
     
        {/* {siteConfig.title} */}
-       <h1 className="title">Manual Técnico</h1>
-        <h3>versión 2.1.8</h3>
+       <h1 className="title title-size">Guía de Estilos para el Desarrollo en Angular</h1>
+        <h3 className="title">versión 1.0</h3>
         
         <div className={styles.buttons}>
           <Link
