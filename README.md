@@ -45,7 +45,7 @@ If you are using GitHub pages for hosting, this command is a convenient way to b
 
 
 
-https://tailblocks.cc/
+<!-- https://tailblocks.cc/
 https://www.tailwindcss-animated.com/
 Jorge Barrero
 5:17 p.m.
@@ -65,4 +65,4 @@ https://www.youtube.com/watch?v=xzwVG06lp7M
 
 
 glt
-glpat-nz5-bXusPy6v64VET4Tm
+glpat-nz5-bXusPy6v64VET4Tm -->
